@@ -12,7 +12,13 @@ function GoodReads() {
   var self = this;
   self.searchurl = "https://www.goodreads.com/search.xml?key="+GOODREADS_API_KEY+"&q=";
   self.getBook = function(title, cb) {
+    //Check if book title is given
+    if (!title || title.length <= 0) {
+      return cb(Error("Invalid Input Given"), null);
+    }
+    //Generate URL for GoodReads API
     var url = self.searchurl + splitTitle(title);
+    //Send GET Request to GoodReads API
     sendGetRequest(url).then(function(xmlResponse) {
       parseResponse(xmlResponse).then(function(booksToReturn) {
         return cb(null, booksToReturn);
@@ -39,7 +45,6 @@ function GoodReads() {
   * @returns Promise
   */
   function sendGetRequest(url) {
-    console.log(url);
     return new Promise(function(resolve, reject) {
       request.get(url, function(err, status, body) {
         if (err) {
@@ -60,7 +65,6 @@ function GoodReads() {
     return new Promise(function(resolve, reject) {
       parseString(xmlResponse, function(err, result) {
         if (err) {
-          console.log(err);
           reject(err);
         }
         var queryStr = result.GoodreadsResponse.search[0].query[0]
