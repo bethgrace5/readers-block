@@ -6,6 +6,10 @@ angular.module('readers-block')
   var auth = firebase.auth();
   var observerCallbacks = [];
 
+  var getSingleBlock = function(blockId) {
+    console.log('Hello World');
+  };
+
   // call this to notify observers
   var notifyObservers = function(){
     angular.forEach(observerCallbacks, function(callback){
@@ -57,12 +61,12 @@ angular.module('readers-block')
     approveRequest: function(key, value) {
       database.ref('members/'+key).update({
         name: value.name,
-      email: value.email,
-      added: (new Date()),
-      lastLogin: '',
-      bio: value.name + ' hasn\'t written a bio yet.',
-      phone: '',
-      position: 'member'
+        email: value.email,
+        added: (new Date()),
+        lastLogin: '',
+        bio: value.name + ' hasn\'t written a bio yet.',
+        phone: '',
+        position: 'member'
       }).then(function() {
         database.ref('requests/'+key).remove();
       }.bind(this)).catch(function(error) {

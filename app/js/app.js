@@ -30,7 +30,12 @@ angular.module('readers-block', [
     templateUrl: 'app/views/userblocks.html',
     controller: 'UserBlocksCtrl',
     controllerAs: 'userblocks'
-  }).otherwise({
+  }).when('/myblocks/block', {
+    templateUrl: 'app/views/singleblock.html',
+    controller: 'SingleBlockCtrl',
+    controllerAs: 'singleblock'
+  })
+  .otherwise({
     redirectTo: '/'
   });
 
