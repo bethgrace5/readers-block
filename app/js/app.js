@@ -11,11 +11,11 @@ angular.module('readers-block', [
 
   /* Routes */
   $routeProvider.when('/', {
-    templateUrl: 'views/landing.html',
+    templateUrl: 'app/views/landing.html',
     controller: 'MainCtrl',
     controllerAs: 'main'
   }).when('/account', {
-    templateUrl: 'views/account.html',
+    templateUrl: 'app/views/account.html',
     controller: 'AccountCtrl',
     controllerAs: 'account'
   }).otherwise({
