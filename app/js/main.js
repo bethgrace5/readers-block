@@ -256,5 +256,4 @@ angular.module('readers-block')
       }
     );
 
-
 });

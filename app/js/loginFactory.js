@@ -35,46 +35,68 @@ angular.module('readers-block')
     carsRef.on('child_removed', removeCar);
   };
 
-  var updateLoginDate = function(uid) {
+  // updates login date for existing users (also adds info for new users)
+  var updateLoginDate = function(user) {
     var deferred = $q.defer();
-    database.ref('members')
-      .child(uid).update({lastActive: new Date()}).then(function() {
-        deferred.resolve('successful');
-      // Clear message text field and SEND button state.
-    }.bind(this)).catch(function(error) {
-        console.error('user is not a member', error);
-        deferred.reject('error');
-    });
+    database.ref('users').child(user.uid).once('value',
+        function(snapshot) {
+          // this user exists, update login date
+          if (snapshot.exists()) {
+            database.ref('users').child(user.uid).update({
+              'last_login': new Date()
+            }).then(
+              function() {
+                deferred.resolve('successful');
+              }.bind(this)).catch(function(error) {
+                deferred.reject('error');
+            });
+          }
+          // this user is new, add all their info with default email alias
+          else {
+            database.ref('users').child(user.uid).update({
+              'last_login': new Date(),
+              'img': user.photoURL,
+              'email': user.email,
+              'name': user.displayName,
+              'alias': user.email
+            }).then(
+              function() {
+                deferred.resolve('successful');
+              }.bind(this)).catch(function(error) {
+                deferred.reject('error');
+            });
+          }
+        })
     return deferred.promise;
   }
 
   // Triggers when the auth state change for instance when the member signs-in or signs-out.
   var onAuthStateChanged = function(currentUser) {
     if (currentUser) {
-      updateLoginDate(currentUser.uid).then(
+      updateLoginDate(currentUser).then(
         // The user exists and is verified
         function(success) {
-        database.ref('members').child(currentUser.uid).once('value',
-              function(data) {
-                user = data.val();
-                env.loggedIn = true;
-                loadCars();
-                notifyObservers();
-              }).then(function() {
-          // Clear message text field and SEND button state.
-        }.bind(this)).catch(function(error) {
-            console.error('user is not a member', error);
-                notifyObservers();
-        });
+          database.ref('users').child(currentUser.uid).once('value',
+            function(data) {
+              console.log(user);
+              env.loggedIn = true;
+              notifyObservers();
+            }).then(
+            function() {
+              // none
+            }.bind(this)).catch(
+              function(error) {
+                console.error('user is not a member', error);
+              });
         // The user is not verified
-        },function(error) {
-        user.uid = currentUser.uid;
-        user.name = currentUser.displayName;
-        user.email = currentUser.email;
-        user.img = currentUser.photoURL;
-        user.admin = false;
-        env.loggedIn = true;
-      });
+        },
+        function(error) {
+          user.uid = currentUser.uid;
+          user.name = currentUser.displayName;
+          user.email = currentUser.email;
+          user.img = currentUser.photoURL;
+          env.loggedIn = true;
+        });
     }
     else { // User is signed out!
       user = {'uid':'', 'name':'', 'email':'', 'img':'', 'active':false}
@@ -99,7 +121,6 @@ angular.module('readers-block')
       if (auth.currentUser) {
         return true;
       }
-      alert('You must sign-in first');
       return false;
     },
     approveRequest: function(key, value) {
@@ -108,7 +129,6 @@ angular.module('readers-block')
       email: value.email,
       added: (new Date()),
       lastLogin: '',
-      admin: false ,
       bio: value.name + ' hasn\'t written a bio yet.',
       phone: '',
       position: 'member'
@@ -120,9 +140,6 @@ angular.module('readers-block')
     },
     denyRequest: function(key, value) {
       database.ref('requests/'+key).remove();
-    },
-    addUser: function() {
-      // add a username/password combination
     },
     getUser: function() {
       return user;
