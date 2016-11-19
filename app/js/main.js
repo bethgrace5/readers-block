@@ -1,6 +1,6 @@
 'use strict';
 angular.module('readers-block')
-  .controller('MainCtrl', function ($scope, $rootScope, $timeout, $location, loginFactory){
+  .controller('MainCtrl', function ($scope, $rootScope, $timeout, $location, loginFactory, blockFactory){
 
   $scope.close = function() {
     console.log('close');
@@ -15,7 +15,6 @@ angular.module('readers-block')
   $scope.meetings = {};
   $scope.members = {};
   $scope.allCars = {};
-  $scope.cars = loginFactory.getCars();
   $scope.LOADING_IMAGE_URL = 'https://www.google.com/images/spin-32.gif';
 
   $scope.signIn = function(method) {
@@ -23,6 +22,10 @@ angular.module('readers-block')
   }
   $scope.signOut = function() {
     loginFactory.signOut();
+  }
+
+  $scope.addBlock = function() {
+    blockFactory.add();
   }
 
   $scope.deleteCar = function(key, value) {
@@ -250,7 +253,6 @@ angular.module('readers-block')
         $timeout(function() {
           $scope.user = loginFactory.getUser();
           $scope.env = loginFactory.getEnv();
-          $scope.cars = loginFactory.getCars();
           $scope.$apply();
         });
       }

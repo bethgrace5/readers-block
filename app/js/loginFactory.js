@@ -1,12 +1,11 @@
 'use strict';
 
 angular.module('readers-block')
-  .factory('loginFactory', function ($q, $log, $http, $rootScope, $timeout) {
+  .factory('loginFactory', function ($q, $log, $http, $rootScope, $timeout, blockFactory) {
   var database = firebase.database();
   var auth = firebase.auth();
   var user = {'uid':'', 'name':'', 'email':'', 'img':'', 'active':false}
   var env = {'loggedIn':false};
-  var cars = {};
   var observerCallbacks = [];
 
   // call this to notify observers
@@ -14,25 +13,6 @@ angular.module('readers-block')
     angular.forEach(observerCallbacks, function(callback){
       callback();
     });
-  };
-
-  // Loads this user's cars
-  var loadCars = function() {
-    console.log('load cars');
-    var carsRef = database.ref('cars/' + user.uid); // Reference to the /cars/ database path.
-    carsRef.off(); // Make sure we remove all previous listeners.
-    var setCar = function(data) {
-      console.log(data.key);
-      cars[data.key] = data.val();
-      notifyObservers();
-    }.bind(this);
-    var removeCar = function(data) {
-      delete cars[data.key];
-      notifyObservers();
-    }.bind(this);
-
-    carsRef.on('child_added', setCar);
-    carsRef.on('child_removed', removeCar);
   };
 
   // updates login date for existing users (also adds info for new users)
@@ -126,39 +106,11 @@ angular.module('readers-block')
       }
       return false;
     },
-    approveRequest: function(key, value) {
-      database.ref('members/'+key).update({
-        name: value.name,
-      email: value.email,
-      added: (new Date()),
-      lastLogin: '',
-      bio: value.name + ' hasn\'t written a bio yet.',
-      phone: '',
-      position: 'member'
-      }).then(function() {
-        database.ref('requests/'+key).remove();
-      }.bind(this)).catch(function(error) {
-        console.error('Error writing new message to Firebase Database', error);
-      });
-    },
-    denyRequest: function(key, value) {
-      database.ref('requests/'+key).remove();
-    },
     getUser: function() {
       return user;
     },
     getEnv: function() {
       return env;
-    },
-    getCars: function() {
-      return cars;
-    },
-    updateProfile: function(usr) {
-      database.ref('members/'+usr.uid).update(usr)
-        .then(function() {
-      }.bind(this)).catch(function(error) {
-        console.error('Error writing new meeting to Firebase Database', error);
-      });
     },
     registerObserverCallback: function(callback){
       observerCallbacks.push(callback);
