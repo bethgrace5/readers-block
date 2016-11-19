@@ -18,6 +18,10 @@ angular.module('readers-block', [
     templateUrl: 'app/views/account.html',
     controller: 'AccountCtrl',
     controllerAs: 'account'
+  }).when('/createblock', {
+    templateUrl: 'app/views/createblock.html',
+    controller: 'BlockCtrl',
+    controllerAs: 'createblock'
   }).when('/landing', {
     templateUrl: 'app/views/landing.html',
     controller: 'LandingCtrl',
