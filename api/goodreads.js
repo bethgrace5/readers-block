@@ -70,17 +70,22 @@ function GoodReads() {
     });
   }
 
+  /**
+  * @name buildBookObjects
+  * @param
+  */
   function buildBookObjects(queryStr, booksRes) {
-    return bs = booksRes.map(function(book) {
-      // var b = {};
-      // b['title'] = book_best_book[0].title;
+    var objToReturn = {};
+    objToReturn.books = booksRes.map(function(book) {
       var b = {};
-      b['title'] = book.best_book[0].title;
-      b['author'] = book.best_book[0].author[0].name;
-      b['thumbnail_image'] = book.best_book[0].small_image_url;
-      b['full_image'] = book.best_book[0].image_url;
+      b.title = book.best_book[0].title.join();
+      b.author = book.best_book[0].author[0].name.join();
+      b.thumbnail_image = book.best_book[0].small_image_url.join();
+      b.full_image = book.best_book[0].image_url.join();
       return b;
     });
+    objToReturn.query = queryStr;
+    return objToReturn;
   }
 }
 
