@@ -18,6 +18,7 @@ function GoodReads() {
     }
     //Generate URL for GoodReads API
     var url = self.searchurl + splitTitle(title);
+    console.log(url);
     //Send GET Request to GoodReads API
     sendGetRequest(url).then(function(xmlResponse) {
       parseResponse(xmlResponse).then(function(booksToReturn) {
@@ -36,7 +37,7 @@ function GoodReads() {
   * @returns a URl-encoded string ready to send to GoodReads API
   */
   function splitTitle(title) {
-    return title.split(" ").join("+")
+    return title.split("%20").join("+")
   }
 
   /**
