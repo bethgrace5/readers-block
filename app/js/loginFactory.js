@@ -36,13 +36,15 @@ angular.module('readers-block')
   };
 
   // updates login date for existing users (also adds info for new users)
-  var updateLoginDate = function(user) {
+  var updateLoginDate = function(u) {
     var deferred = $q.defer();
-    database.ref('users').child(user.uid).once('value',
+    database.ref('users').child(u.uid).once('value',
         function(snapshot) {
+          // get the user data
+          user = snapshot.val();
           // this user exists, update login date
           if (snapshot.exists()) {
-            database.ref('users').child(user.uid).update({
+            database.ref('users').child(u.uid).update({
               'last_login': new Date()
             }).then(
               function() {
@@ -53,12 +55,12 @@ angular.module('readers-block')
           }
           // this user is new, add all their info with default email alias
           else {
-            database.ref('users').child(user.uid).update({
+            database.ref('users').child(u.uid).update({
               'last_login': new Date(),
-              'img': user.photoURL,
-              'email': user.email,
-              'name': user.displayName,
-              'alias': user.email
+              'img': u.photoURL,
+              'email': u.email,
+              'name': u.displayName,
+              'alias': u.email
             }).then(
               function() {
                 deferred.resolve('successful');
@@ -78,7 +80,6 @@ angular.module('readers-block')
         function(success) {
           database.ref('users').child(currentUser.uid).once('value',
             function(data) {
-              console.log(user);
               env.loggedIn = true;
               notifyObservers();
             }).then(
