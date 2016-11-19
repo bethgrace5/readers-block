@@ -1,7 +1,6 @@
 'use strict';
 angular.module('readers-block')
-  .controller('UserBlocksCtrl', function ($scope, $http, loginFactory){
-    $scope.userBlocks = [];
+  .controller('UserBlocksCtrl', function ($scope, $http, loginFactory, blockFactory){
     $scope.newBlock = {
       title: "",
       description: "",
@@ -9,8 +8,7 @@ angular.module('readers-block')
     };
 
     $scope.createNewBlock = function() {
-      $scope.userBlocks.push($scope.newBlock);
+      blockFactory.add($scope.newBlock);
       $scope.newBlock = {};
     }
-
 });

@@ -14,11 +14,12 @@ angular.module('readers-block')
   };
 
   // Loads this user's cars
-  var addBlock = function() {
+  //add block param
+  var addBlock = function(newUserBlock) {
     var uid = auth.currentUser.uid;
 
     var blockRef = database.ref('users').child(uid).child('blocks').push();
-    blockRef.set({ 'user_id': 'fred', 'text': 'Yabba Dabba Doo!' }).then(
+    blockRef.set(newUserBlock).then(
       function(success) {
         notifyObservers();
       },
@@ -71,8 +72,8 @@ angular.module('readers-block')
     denyRequest: function(key, value) {
       database.ref('requests/'+key).remove();
     },
-    add: function() {
-       addBlock();
+    add: function(newUserBlock) {
+       addBlock(newUserBlock);
     },
     getEnv: function() {
       return env;
@@ -84,4 +85,3 @@ angular.module('readers-block')
 
   return service
 });
-
