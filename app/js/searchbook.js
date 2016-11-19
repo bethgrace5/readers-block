@@ -1,6 +1,6 @@
 'use strict';
 angular.module('readers-block')
-  .controller('BlockCtrl', function ($scope, $http, loginFactory){
+  .controller('SearchBookCtrl', function ($scope, $http, loginFactory){
     $scope.bookResults = [];
 
     $scope.findBook = function() {
@@ -8,6 +8,8 @@ angular.module('readers-block')
       $http.get('/api/find_books/' + bookTitle).then(function(res) {
         if (res.status == 200) {
           $scope.bookResults = res.data.results.books;
+        } else {
+
         }
       });
     };

@@ -18,14 +18,18 @@ angular.module('readers-block', [
     templateUrl: 'app/views/account.html',
     controller: 'AccountCtrl',
     controllerAs: 'account'
-  }).when('/createblock', {
+  }).when('/searchbook', {
     templateUrl: 'app/views/createblock.html',
-    controller: 'BlockCtrl',
-    controllerAs: 'createblock'
+    controller: 'SearchBookCtrl',
+    controllerAs: 'searchbook'
   }).when('/landing', {
     templateUrl: 'app/views/landing.html',
     controller: 'LandingCtrl',
     controllerAs: 'landing'
+  }).when('/myblocks', {
+    templateUrl: 'app/views/userblocks.html',
+    controller: 'UserBlocksCtrl',
+    controllerAs: 'userblocks'
   }).otherwise({
     redirectTo: '/'
   });
