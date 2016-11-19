@@ -1,0 +1,10 @@
+<h1>Find Book {{search}}</h1>
+<input type="text" ng-model="search.book_title" class="form-control">
+<button class="btn btn-primary" ng-click="findBook()">Search for Book</button>
+<ul>
+  <li ng-repeat="book in bookResults">
+    <img ng-src="{{book.thumbnail_image}}" alt="">
+    {{book.title}}
+    {{book.author}}
+  </li>
+</ul>
