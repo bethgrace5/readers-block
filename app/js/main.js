@@ -2,6 +2,11 @@
 angular.module('readers-block')
   .controller('MainCtrl', function ($scope, $rootScope, $timeout, $location, loginFactory){
 
+  $scope.close = function() {
+    console.log('close');
+    $('#navbar').collapse('hide');
+  }
+
   $scope.user = loginFactory.getUser();
   $scope.env = loginFactory.getEnv();
 
