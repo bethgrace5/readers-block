@@ -13,4 +13,24 @@ html, body {
   background-size: 100%;
 }
 
+/* Blocks */
+  .readers-block {
+    padding: 4em 2em;
+  }
+  
+  .readers-list {
+    min-height: 180px;
+    width: 160px;
+    display: inline-block;
+    margin: 0.5em;
+  }
+  
+  .readers-list:hover {
+    cursor: pointer;
+  }
+  
+  .user-block {
+    display: none;
+  }
+
 

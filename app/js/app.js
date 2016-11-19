@@ -18,6 +18,10 @@ angular.module('readers-block', [
     templateUrl: 'app/views/account.html',
     controller: 'AccountCtrl',
     controllerAs: 'account'
+  }).when('/landing', {
+    templateUrl: 'app/views/landing.html',
+    controller: 'LandingCtrl',
+    controllerAs: 'landing'
   }).otherwise({
     redirectTo: '/'
   });
