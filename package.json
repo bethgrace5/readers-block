@@ -1,0 +1,29 @@
+{
+  "name": "readers-block",
+  "version": "1.0.0",
+  "description": "Create playlists of books",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bethgrace5/readers-block.git"
+  },
+  "keywords": [
+    "books"
+  ],
+  "author": "Beth, Prosper, Richard, Cory, Tomas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bethgrace5/readers-block/issues"
+  },
+  "homepage": "https://github.com/bethgrace5/readers-block#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "request": "^2.79.0",
+    "underscore": "^1.8.3",
+    "xml2js": "^0.4.17"
+  }
+}
