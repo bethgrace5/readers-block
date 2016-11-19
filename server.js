@@ -23,7 +23,7 @@ Router.get('/find_books/:name', function(req, res) {
     if (err) {
       res.json({ error: err});
     }
-    res.json({ msg: results});
+    res.json({ res: results});
   })
 });
 
