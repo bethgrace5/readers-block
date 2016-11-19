@@ -72,7 +72,10 @@ function GoodReads() {
 
   /**
   * @name buildBookObjects
-  * @param
+  * @param String queryStr - The name of the book the user queried
+  * @param Array - array of Book results
+  * @overview
+  * Creates a collection of book objects returned to the user
   */
   function buildBookObjects(queryStr, booksRes) {
     var objToReturn = {};
