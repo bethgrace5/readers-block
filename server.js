@@ -1,14 +1,14 @@
 var express = require('express');
-var app = express();
+var server = express();
 var Router = express.Router();
 var GoodReads = require('./api/goodreads');
 
 var port = process.env.PORT || 3000;
-app.set('port', port);
+server.set('port', port);
 
-app.use(express.static(__dirname));
+server.use(express.static(__dirname));
 
-app.get('/', function(req, res) {
+server.get('/', function(req, res) {
   res.sendFile(__dirname + "index.html");
 });
 
@@ -27,9 +27,13 @@ Router.get('/find_books/:name', function(req, res) {
   })
 });
 
-app.use('/api', Router);
+server.use('/api', Router);
 
 
-app.listen(port, function() {
-  console.log('Server running on ' + app.get('port'));
+server.listen(port, function() {
+  console.log('Server running on ' + server.get('port'));
 });
+
+
+
+module.exports = server;
