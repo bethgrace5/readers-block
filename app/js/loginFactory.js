@@ -117,6 +117,8 @@ angular.module('readers-block')
     },
     signOut: function() {
       auth.signOut();
+      env.loggedIn = false;
+      notifyObservers();
     },
     checkSignedIn: function() {
       if (auth.currentUser) {
