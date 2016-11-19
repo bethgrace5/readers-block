@@ -7,15 +7,20 @@
           <h3 class="panel-title">{{user.name}}'s Block</h3>
         </div>
         <div class="panel-body" id="list-container">
-          <ul class="list-group col-xs-12 col-sm-6">
-            <li class="list-group-item">
-              School Books
-              <span class="community-ratings">
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star-half-o"></i>
-                <i class="fa fa-star-o"></i>
+          
+          <ul class="list-group">
+            <div ng-repeat="item in user.blocks">
+              <div class="col-xs-12 col-sm-6">
+                <li class="list-group-item">
+              {{item.title}}
+              <span class="community-ratings" ng-switch="item.rating.user_rating">
+                <span ng-switch-when="0">
+                  <i class="fa fa-star-o"></i>
+                  <i class="fa fa-star-o"></i>
+                  <i class="fa fa-star-o"></i>
+                  <i class="fa fa-star-o"></i>
+                  <i class="fa fa-star-o"></i>
+                </span>
               </span>
               <span class="critic-ratings">
                 <i class="fa fa-star"></i>
@@ -25,7 +30,12 @@
                 <i class="fa fa-star-o"></i>
               </span>
             </li>
-            <li class="list-group-item">Summer 2016</li>
+              </div>
+              
+            </div>
+            </ul>
+            
+            <!--<li class="list-group-item">{{user.blocks[0].description}}</li>
             <li class="list-group-item">Scary Titles</li>
             <li class="list-group-item">American History</li>
           </ul>
@@ -34,7 +44,7 @@
             <li class="list-group-item">Sad Titles</li>
             <li class="list-group-item">Thrillers</li>
             <li class="list-group-item">Fall 2016</li>
-          </ul>
+          </ul>-->
         </div>
       </div>
     </div>
