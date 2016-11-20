@@ -13,6 +13,7 @@ angular.module('readers-block')
     };
 
     $scope.deleteBlock = function(blockId) {
-      blockFactory.delete(blockId);
+      $scope.user.blocks.splice(blockId, 1);
+      blockFactory.update($scope.user.blocks);
     };
 });
