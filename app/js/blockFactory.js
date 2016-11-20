@@ -19,7 +19,6 @@ angular.module('readers-block')
     });
   };
 
-  // Loads this user's cars
   //add block param
   var addBlock = function(newUserBlock) {
     var uid = auth.currentUser.uid;
@@ -31,6 +30,18 @@ angular.module('readers-block')
       },
       function(error) {
       });
+  };
+
+  //add block param
+  var updateBlock = function(newUserBlock) {
+    var uid = auth.currentUser.uid;
+
+    database.ref('users/'+uid+"/blocks/").set(newUserBlock).then(
+        function(success) {
+        },
+        function(error) {
+        });
+
   };
 
   var deleteBlock = function(blockId) {
@@ -105,6 +116,10 @@ angular.module('readers-block')
     },
     add: function(newUserBlock) {
        addBlock(newUserBlock);
+    },
+    update: function(newUserBlock) {
+        console.log(newUserBlock);
+       updateBlock(newUserBlock);
     },
     addBook: function(newBook, blockId) {
       console.log('Adding Book');
