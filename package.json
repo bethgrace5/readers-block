@@ -8,8 +8,7 @@
   "description": "Create playlists of books",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "postinstall": "node node_modules/bower/bin/bower install"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
