@@ -265,4 +265,20 @@ angular.module('readers-block')
       }
     );
 
+  $scope.emailSubscription = function() {
+    Patchwork.callPlatformMethod({
+        platformId: MAILCHIMP_PLATFORM_ID,
+        method: "subscribers",
+        action: "POST",
+        params: {email_address: $scope.user.email}
+    }).then(function(responseJSON) {
+      return new Promise(function(resolve, reject) {
+        alert({
+          message: "Subscribed Successfully. Please check your email for confirmation."
+        }, {type: "info"});
+        resolve();
+      });
+    });
+  }
+
 });
