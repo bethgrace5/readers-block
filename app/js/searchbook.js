@@ -5,7 +5,7 @@ angular.module('readers-block')
 
     $scope.findBook = function() {
       var bookTitle = $scope.search.book_title;
-      $http.get('/api/find_books/' + bookTitle).then(function(res) {
+      $http.get('/api/findbook/' + bookTitle).then(function(res) {
         if (res.status == 200) {
           $scope.bookResults = res.data.results.books;
         } else if (res.status == 500) {

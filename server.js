@@ -24,8 +24,8 @@ Router.get('/', function(req, res) {
   res.json({ msg: "Readers Block API "});
 });
 
-//GET /api/find_books/bookname
-Router.get('/find_books/:name', function(req, res) {
+//GET /api/findbook/bookname
+Router.get('/findbook/:name', function(req, res) {
   var book_name = req.params.name;
   GoodReads.getBook(book_name, function(err, results) {
     if (err) {
