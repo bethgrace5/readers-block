@@ -14,8 +14,12 @@
       <hr>
       <div class="panel-body" id="list-container">
         <h4>Books</h4>
-        <ul ng-repeat="books in {{singleBlock.books}}">
-
+        <ul>
+          <li ng-repeat="book in singleBlock.books">
+            <img ng-src="{{book.thumbnail_image}}" alt="">
+            {{book.title}}
+            {{book.author}}
+          </li>
         </ul>
       </div>
     </div>
@@ -37,6 +41,7 @@
             <img ng-src="{{book.thumbnail_image}}" alt="">
             {{book.title}}
             {{book.author}}
+            <button class="btn btn-primary" ng-click="addBookToBlock(book)">Add To Block</button>
           </li>
         </ul>
       </div>
