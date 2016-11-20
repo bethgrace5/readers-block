@@ -1,11 +1,14 @@
 {
   "name": "readers-block",
   "version": "1.0.0",
+  "engines": {
+    "node": "6.5.0",
+    "npm": "3.10.3"
+  },
   "description": "Create playlists of books",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -21,6 +24,7 @@
   },
   "homepage": "https://github.com/bethgrace5/readers-block#readme",
   "dependencies": {
+    "bower": "^0.7.1",
     "colors": "^1.1.2",
     "express": "^4.14.0",
     "request": "^2.79.0",

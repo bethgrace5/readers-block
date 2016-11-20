@@ -19,7 +19,7 @@ angular.module('readers-block', [
     controller: 'AccountCtrl',
     controllerAs: 'account'
   }).when('/searchbook', {
-    templateUrl: 'app/views/createblock.html',
+    templateUrl: 'app/views/searchforbooks.html',
     controller: 'SearchBookCtrl',
     controllerAs: 'searchbook'
   }).when('/landing', {

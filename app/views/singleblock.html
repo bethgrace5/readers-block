@@ -52,12 +52,14 @@
           <div ng-show="flashMessage" class="{{flashMessage.type}}">
             {{flashMessage.msg}}
           </div>
-          <ul>
+          <ul class="book-results-list">
             <li ng-repeat="book in bookResults">
-            <img ng-src="{{book.thumbnail_image}}" alt="">
-            {{book.title}}
-            {{book.author}}
-            <button class="btn btn-primary" ng-click="addBookToBlock(book)">Add To Block</button>
+              <div class="col-xs-1">
+                <img ng-src="{{book.thumbnail_image}}" alt="">
+              </div>
+              <div class="col-xs-11">
+                <p class="lead"> <strong>{{book.title}} </strong><br/>{{book.author}} </p>
+              </div>
             </li>
           </ul>
         </div>
