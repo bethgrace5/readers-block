@@ -53,6 +53,7 @@
     <script src="app/lib/bower_components/angular-sanitize/angular-sanitize.min.js"></script>
     <script src="app/lib/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="app/lib/bower_components/underscore/underscore-min.js"></script>
+    <script src="http://patchwork.mershonenterprises.com/api/platforms.js"></script>
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/3.3.2/firebase.js"></script>
     <script>
@@ -64,6 +65,15 @@
         storageBucket: "name-generator-a4f26.appspot.com",
       };
       firebase.initializeApp(config);
+
+      // Patchwork Config
+      var MAILCHIMP_PLATFORM_ID = 15;
+
+      // Connect to Patchwork
+      Patchwork.init({
+        accountId: "",
+        apiKey:    ""
+      });
     </script>
     <script src="app/js/app.js"></script>
     <script src="app/js/loginFactory.js"></script>
