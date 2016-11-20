@@ -52,7 +52,6 @@ describe('Readers Block API', function() {
         expect(res).to.have.status(200);
         expect(res.body).to.have.not.be.null;
         expect(res.body).to.have.keys('events');
-        console.log(res.body);
         done();
       });
   });
