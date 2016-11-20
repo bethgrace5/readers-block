@@ -29,6 +29,10 @@ html, body {
   div.panel-heading {
     min-height: 55px;
   }
+  
+  div.panel-heading h3.panel-title {
+    display: inline;
+  }
 
   li.list-group-item {
     cursor: pointer;
