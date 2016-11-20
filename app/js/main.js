@@ -248,6 +248,15 @@ angular.module('readers-block')
     loginFactory.denyRequest(key, value);
   }
 
+  blockFactory.registerObserverCallback(
+    function() {
+      $timeout(function() {
+        $scope.user = loginFactory.getUser();
+        $scope.env = loginFactory.getEnv();
+        $scope.$apply();
+      });
+    }
+  );
   loginFactory.registerObserverCallback(
       function() {
         $timeout(function() {

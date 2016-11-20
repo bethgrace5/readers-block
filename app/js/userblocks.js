@@ -10,5 +10,9 @@ angular.module('readers-block')
     $scope.createNewBlock = function() {
       blockFactory.add($scope.newBlock);
       $scope.newBlock = {};
-    }
+    };
+
+    $scope.deleteBlock = function(blockId) {
+      blockFactory.delete(blockId);
+    };
 });
