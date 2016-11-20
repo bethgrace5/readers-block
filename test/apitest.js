@@ -43,4 +43,17 @@ describe('Readers Block API', function() {
         done();
       });
   });
-})
+
+  it('should respond with events in the area', function(done) {
+    chai.request(app)
+      .get('/api/events/93313')
+      .end(function(err, res) {
+        expect(err).to.be.null;
+        expect(res).to.have.status(200);
+        expect(res.body).to.have.not.be.null;
+        expect(res.body).to.have.keys('events');
+        console.log(res.body);
+        done();
+      });
+  });
+});

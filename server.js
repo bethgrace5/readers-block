@@ -37,6 +37,16 @@ Router.get('/findbook/:name', function(req, res) {
   })
 });
 
+Router.get('/events/:zipcode', function(req, res) {
+  var zipcode = req.params.zipcode;
+  GoodReads.getEvents(zipcode, function(err, listOfEvents) {
+    if (err) {
+      res.status(404).json({ error: err });
+    }
+    res.status(200).json({ events: listOfEvents });
+  });
+});
+
 //Mount middleware for /api/ routing
 server.use('/api', Router);
 
