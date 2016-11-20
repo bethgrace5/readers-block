@@ -63,54 +63,57 @@
       <h3 class="text-center">Join The Fun!</h3>
       <p>Organize your summer reading list. Reccomend reading material to ambitious students. But most of all, <strong>Never suffer from Reader's Block again!</strong></p>
           <ul class="list-group">
-            <div ng-repeat="item in user.blocks">
+            <div ng-repeat="(key,value) in user.blocks">
               <div class="col-xs-12">
-                <li class="list-group-item">
-                {{item.title}}
-                <span class="community-ratings">
-                  <!-- 0.5 -->
-                  <i class="fa fa-star-o"      ng-show="item.rating.user_rating < 0.5"></i>
-                  <i class="fa fa-star-half-o" ng-show="item.rating.user_rating == 0.5"></i>
-                  <i class="fa fa-star"        ng-show="item.rating.user_rating >= 0.5"></i>
-                  <!-- 1.5 -->
-                  <i class="fa fa-star-o"      ng-show="item.rating.user_rating < 1.5"></i>
-                  <i class="fa fa-star-half-o" ng-show="item.rating.user_rating == 1.5"></i>
-                  <i class="fa fa-star"        ng-show="item.rating.user_rating >= 1.5"></i>
-                  <!-- 2.5 -->
-                  <i class="fa fa-star-o"      ng-show="item.rating.user_rating < 2.5"></i>
-                  <i class="fa fa-star-half-o" ng-show="item.rating.user_rating == 2.5"></i>
-                  <i class="fa fa-star"        ng-show="item.rating.user_rating >= 2.5"></i>
-                  <!-- 3.5 -->
-                  <i class="fa fa-star-o"      ng-show="item.rating.user_rating < 3.5"></i>
-                  <i class="fa fa-star-half-o" ng-show="item.rating.user_rating == 3.5"></i>
-                  <i class="fa fa-star"        ng-show="item.rating.user_rating >= 3.5"></i>
-                  <!-- 4.5 -->
-                  <i class="fa fa-star-o"      ng-show="item.rating.user_rating < 4.5"></i>
-                  <i class="fa fa-star-half-o" ng-show="item.rating.user_rating == 4.5"></i>
-                  <i class="fa fa-star"        ng-show="item.rating.user_rating >= 4.5"></i>
-                </span>
-                <span class="critic-ratings">
-                  <!-- 0.5 -->
-                  <i class="fa fa-star-o"      ng-show="item.rating.community_rating < 0.5"></i>
-                  <i class="fa fa-star-half-o" ng-show="item.rating.community_rating == 0.5"></i>
-                  <i class="fa fa-star"        ng-show="item.rating.community_rating >= 0.5"></i>
-                  <!-- 1.5 -->
-                  <i class="fa fa-star-o"      ng-show="item.rating.community_rating < 1.5"></i>
-                  <i class="fa fa-star-half-o" ng-show="item.rating.community_rating == 1.5"></i>
-                  <i class="fa fa-star"        ng-show="item.rating.community_rating >= 1.5"></i>
-                  <!-- 2.5 -->
-                  <i class="fa fa-star-o"      ng-show="item.rating.community_rating < 2.5"></i>
-                  <i class="fa fa-star-half-o" ng-show="item.rating.community_rating == 2.5"></i>
-                  <i class="fa fa-star"        ng-show="item.rating.community_rating >= 2.5"></i>
-                  <!-- 3.5 -->
-                  <i class="fa fa-star-o"      ng-show="item.rating.community_rating < 3.5"></i>
-                  <i class="fa fa-star-half-o" ng-show="item.rating.community_rating == 3.5"></i>
-                  <i class="fa fa-star"        ng-show="item.rating.community_rating >= 3.5"></i>
-                  <!-- 4.5 -->
-                  <i class="fa fa-star-o"      ng-show="item.rating.community_rating < 4.5"></i>
-                  <i class="fa fa-star-half-o" ng-show="item.rating.community_rating == 4.5"></i>
-                  <i class="fa fa-star"        ng-show="item.rating.community_rating >= 4.5"></i>
-                </span>
+                <a ng-click="close('')" href="#/myblocks/block/?block={{key}}">
+                  <li class="list-group-item">
+                  {{value.title}}
+                  <span class="community-ratings">
+                    <!-- 0.5 -->
+                    <i class="fa fa-star-o"      ng-show="value.rating.user_rating < 0.5"></i>
+                    <i class="fa fa-star-half-o" ng-show="value.rating.user_rating == 0.5"></i>
+                    <i class="fa fa-star"        ng-show="value.rating.user_rating >= 0.5"></i>
+                    <!-- 1.5 -->
+                    <i class="fa fa-star-o"      ng-show="value.rating.user_rating < 1.5"></i>
+                    <i class="fa fa-star-half-o" ng-show="value.rating.user_rating == 1.5"></i>
+                    <i class="fa fa-star"        ng-show="value.rating.user_rating >= 1.5"></i>
+                    <!-- 2.5 -->
+                    <i class="fa fa-star-o"      ng-show="value.rating.user_rating < 2.5"></i>
+                    <i class="fa fa-star-half-o" ng-show="value.rating.user_rating == 2.5"></i>
+                    <i class="fa fa-star"        ng-show="value.rating.user_rating >= 2.5"></i>
+                    <!-- 3.5 -->
+                    <i class="fa fa-star-o"      ng-show="value.rating.user_rating < 3.5"></i>
+                    <i class="fa fa-star-half-o" ng-show="value.rating.user_rating == 3.5"></i>
+                    <i class="fa fa-star"        ng-show="value.rating.user_rating >= 3.5"></i>
+                    <!-- 4.5 -->
+                    <i class="fa fa-star-o"      ng-show="value.rating.user_rating < 4.5"></i>
+                    <i class="fa fa-star-half-o" ng-show="value.rating.user_rating == 4.5"></i>
+                    <i class="fa fa-star"        ng-show="value.rating.user_rating >= 4.5"></i>
+                  </span>
+                  <span class="critic-ratings">
+                    <!-- 0.5 -->
+                    <i class="fa fa-star-o"      ng-show="value.rating.community_rating < 0.5"></i>
+                    <i class="fa fa-star-half-o" ng-show="value.rating.community_rating == 0.5"></i>
+                    <i class="fa fa-star"        ng-show="value.rating.community_rating >= 0.5"></i>
+                    <!-- 1.5 -->
+                    <i class="fa fa-star-o"      ng-show="value.rating.community_rating < 1.5"></i>
+                    <i class="fa fa-star-half-o" ng-show="value.rating.community_rating == 1.5"></i>
+                    <i class="fa fa-star"        ng-show="value.rating.community_rating >= 1.5"></i>
+                    <!-- 2.5 -->
+                    <i class="fa fa-star-o"      ng-show="value.rating.community_rating < 2.5"></i>
+                    <i class="fa fa-star-half-o" ng-show="value.rating.community_rating == 2.5"></i>
+                    <i class="fa fa-star"        ng-show="value.rating.community_rating >= 2.5"></i>
+                    <!-- 3.5 -->
+                    <i class="fa fa-star-o"      ng-show="value.rating.community_rating < 3.5"></i>
+                    <i class="fa fa-star-half-o" ng-show="value.rating.community_rating == 3.5"></i>
+                    <i class="fa fa-star"        ng-show="value.rating.community_rating >= 3.5"></i>
+                    <!-- 4.5 -->
+                    <i class="fa fa-star-o"      ng-show="value.rating.community_rating < 4.5"></i>
+                    <i class="fa fa-star-half-o" ng-show="value.rating.community_rating == 4.5"></i>
+                    <i class="fa fa-star"        ng-show="value.rating.community_rating >= 4.5"></i>
+                  </span>
+                  </li>
+                </a>
               </div>
             </div>
           </ul>
@@ -123,7 +126,7 @@
 
         <!-- not logged in -->
         <div ng-hide="env.loggedIn" class="col-xs-12">
-          <li class="list-group-item"><strong>Sign In</strong></li>
+          <li class="list-group-item" ng-click="signIn('google')" ><strong>Sign In/Sign Up</strong></li>
         </div>
 
     </div>
