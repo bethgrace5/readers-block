@@ -1,7 +1,11 @@
 var express = require('express');
 var server = express();
+var colors = require('colors');
+
 var Router = express.Router();
 var GoodReads = require('./api/goodreads');
+var quotes = require('./quotes');
+
 
 //Set port to env variable or default 3000
 var port = process.env.PORT || 3000;
@@ -37,7 +41,16 @@ Router.get('/find_books/:name', function(req, res) {
 server.use('/api', Router);
 
 server.listen(port, function() {
-  console.log('The Spice Must Flow on port ' + server.get('port'));
+  console.log("##########################".green);
+  console.log("###### READERS BLOCK #####".blue);
+  console.log("##########################".green);
+  var idx = Math.floor(Math.random() * quotes.length);
+  if (idx > quotes.length) {
+    console.log("Server running on " + server.get('port') );
+  } else {
+
+    console.log(colors.bold(quotes[idx] + "" + server.get('port')) );
+  }
 });
 
 //Expose the server object for testing
