@@ -6,8 +6,10 @@ angular.module('readers-block')
   var auth = firebase.auth();
   var observerCallbacks = [];
 
-  var getSingleBlock = function(blockId) {
-    console.log('Hello World');
+  var querySingleBlock = function(blockId) {
+    var uid = auth.currentUser.uid;
+    console.log(blockId);
+    return "Hello World";
   };
 
   // call this to notify observers
@@ -29,7 +31,26 @@ angular.module('readers-block')
       },
       function(error) {
       });
+  };
 
+  var addBookToBlock = function(newBook, blockId) {
+    var uid = auth.currentUser.uid;
+
+    var bookRef = database.ref('users').child(uid)
+                          .child('blocks').child(blockId)
+                          .child('books').push();
+    console.log('Pushing onto books list');
+    bookRef.set(newBook).then(
+      function(success) {
+        console.log('Success!');
+        notifyObservers();
+      },
+      function(error) {
+        console.log('ERROR');
+      });
+
+    bookRef.on('child_added', notifyObservers());
+  };
     /*
             database.ref('users').child(u.uid).child('blocks').push({
               'last_login': new Date()
@@ -55,7 +76,6 @@ angular.module('readers-block')
     carsRef.on('child_added', setCar);
     carsRef.on('child_removed', removeCar);
     */
-  };
 
   var service = {
     approveRequest: function(key, value) {
@@ -79,8 +99,15 @@ angular.module('readers-block')
     add: function(newUserBlock) {
        addBlock(newUserBlock);
     },
+    addBook: function(newBook, blockId) {
+      console.log('Adding Book');
+      addBookToBlock(newBook, blockId);
+    },
     getEnv: function() {
       return env;
+    },
+    getSingleBlock: function(blockId) {
+      return querySingleBlock(blockId);
     },
     registerObserverCallback: function(callback){
       observerCallbacks.push(callback);

@@ -100,6 +100,9 @@ angular.module('readers-block')
       env.loggedIn = false;
       notifyObservers();
     },
+    updateBookList: function() {
+      updateLoginDate(user);
+    },
     checkSignedIn: function() {
       if (auth.currentUser) {
         return true;
@@ -119,4 +122,3 @@ angular.module('readers-block')
 
   return service
 });
-

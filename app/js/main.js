@@ -248,6 +248,13 @@ angular.module('readers-block')
     loginFactory.denyRequest(key, value);
   }
 
+  blockFactory.registerObserverCallback(
+    function() {
+      $timeout(function() {
+        loginFactory.updateBookList();
+      });
+    }
+  );
   loginFactory.registerObserverCallback(
       function() {
         $timeout(function() {
