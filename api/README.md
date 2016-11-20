@@ -3,7 +3,7 @@
 
 ### Search for a book
 ```sh
-/api/find_book/:book_name
+/api/findbook/:book_name
 ```
 ### Book Object Example
 ```js
