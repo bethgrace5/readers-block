@@ -15,7 +15,6 @@ function GoodReads() {
   self.getEvents = function(zipcode, cb) {
     var url = "https://www.goodreads.com/event/index.xml?search[zip_code]="+zipcode+"&key="+GOODREADS_API_KEY;
     var listOfEvents = {};
-    console.log(url);
     //Send GET request to GoodReads API Events Endpoint
     sendGetRequest(url).then(function(xmlResponse) {
       xmlToJSON(xmlResponse).then(function(jsonRes) {
@@ -69,7 +68,6 @@ function GoodReads() {
         if (err) {
           reject(err);
         }
-        console.log(body);
         resolve(body);
       });
     });
