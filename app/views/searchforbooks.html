@@ -1,0 +1,26 @@
+<div class="row user-block" ng-show="env.loggedIn">
+  <div class="col-xs-10 col-xs-offset-1">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Add A Book</h3>
+      </div>
+      <div class="panel-body" id="list-container">
+        <input type="text" ng-model="search.book_title" class="form-control" placeholder="Goosebumps">
+        <button class="btn btn-primary" ng-click="findBook()">Search for Book</button>
+        <div ng-show="flashMessage" class="{{flashMessage.type}}">
+          {{flashMessage.msg}}
+        </div>
+        <ul class="book-results-list">
+          <li ng-repeat="book in bookResults">
+            <div class="col-xs-1">
+              <img ng-src="{{book.thumbnail_image}}" alt="">
+            </div>
+            <div class="col-xs-11">
+              <p class="lead"> <strong>{{book.title}} </strong><br/>{{book.author}} </p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
