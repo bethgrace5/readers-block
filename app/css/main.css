@@ -25,6 +25,14 @@ html, body {
     padding-left: 15px;
     margin: 1em 0;
   }
+  
+  div.panel-heading {
+    min-height: 55px;
+  }
+  
+  div.panel-heading h3.panel-title {
+    display: inline;
+  }
 
   li.list-group-item {
     cursor: pointer;
@@ -48,5 +56,9 @@ html, body {
   span.critic-ratings {
     float: right;
     color: #0034c2;
+  }
+  
+  #add-list {
+    float: right
   }
 

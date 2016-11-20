@@ -4,9 +4,9 @@
       <div class="panel panel-default">
         <div class="panel-heading">
           <h3 class="panel-title">{{user.name}}'s Block</h3>
+          <button class="btn btn-md btn-primary" id="add-list">Add List</button>
         </div>
         <div class="panel-body" id="list-container">
-
           <ul class="list-group">
             <div ng-repeat="item in user.blocks">
               <div class="col-xs-12 col-sm-6">
@@ -66,7 +66,7 @@
   </div>
 </div>
 
-<div class="row user-block" ng-show="env.loggedIn">
+<div class="row user-block">
   <div class="col-xs-10 col-xs-offset-1">
     <div class="panel panel-default">
       <div class="panel-heading">
@@ -89,27 +89,25 @@
     </div>
   </div>
 </div>
-
-  <div class="row user-block" ng-show="env.loggedIn">
-    <div class="col-xs-10 col-xs-offset-1">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">Most Recent</h3>
-        </div>
-        <div class="panel-body" id="list-container">
-          <ul class="list-group col-xs-12 col-sm-6">
-            <li class="list-group-item">School Books</li>
-            <li class="list-group-item">Summer 2016</li>
-            <li class="list-group-item">Scary Titles</li>
-            <li class="list-group-item">American History</li>
-          </ul>
-          <ul class="list-group col-xs-12 col-sm-6">
-            <li class="list-group-item">Documentaries</li>
-            <li class="list-group-item">Sad Titles</li>
-            <li class="list-group-item">Thrillers</li>
-            <li class="list-group-item">Fall 2016</li>
-          </ul>
-        </div>
+<div class="row user-block">
+  <div class="col-xs-10 col-xs-offset-1">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Most Recent</h3>
+      </div>
+      <div class="panel-body" id="list-container">
+        <ul class="list-group col-xs-12 col-sm-6">
+          <li class="list-group-item">School Books</li>
+          <li class="list-group-item">Summer 2016</li>
+          <li class="list-group-item">Scary Titles</li>
+          <li class="list-group-item">American History</li>
+        </ul>
+        <ul class="list-group col-xs-12 col-sm-6">
+          <li class="list-group-item">Documentaries</li>
+          <li class="list-group-item">Sad Titles</li>
+          <li class="list-group-item">Thrillers</li>
+          <li class="list-group-item">Fall 2016</li>
+        </ul>
       </div>
     </div>
   </div>
