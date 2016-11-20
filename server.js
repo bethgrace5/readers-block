@@ -21,7 +21,7 @@ Router.get('/find_books/:name', function(req, res) {
   var book_name = req.params.name;
   GoodReads.getBook(book_name, function(err, results) {
     if (err) {
-      res.status(500).json({error: "Error " + err});
+      res.status(200).json({results: "Results Not Found" });
     }
     res.status(200).json({results});
   })

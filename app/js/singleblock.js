@@ -21,11 +21,18 @@ angular.module('readers-block')
       var bookTitle = $scope.search.book_title;
       $http.get('/api/find_books/' + bookTitle).then(function(res) {
         if (res.status == 200) {
-          $scope.bookResults = res.data.results.books;
-        } else if (res.status == 500) {
-          //TODO
-          //Make more elegant
-          $scope.bookResults = {title: "Error No Results Found"};
+          if (res.data.results.books) {
+            $scope.bookResults = res.data.results.books;
+          } else {
+            $scope.flashMessage = {
+              type: "alert alert-danger",
+              msg: "No Results Found"
+            };
+          }
+        } else {
+          console.log(res);
+          //Do some error handling
+          //Flash message?
         }
       });
     };
