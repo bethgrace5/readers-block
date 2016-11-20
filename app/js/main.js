@@ -282,9 +282,8 @@ angular.module('readers-block')
         params: {email_address: $scope.user.email}
     }).then(function(responseJSON) {
       return new Promise(function(resolve, reject) {
-        alert({
-          message: "Subscribed Successfully. Please check your email for confirmation."
-        }, {type: "info"});
+        alert("Subscribed Successfully. Please check your email for confirmation.");
+        console.log('calling add-subscriber for ' + $scope.user.email);
         resolve();
       });
     });
