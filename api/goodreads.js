@@ -11,6 +11,25 @@ var GOODREADS_SECRET_KEY = "6pdfhf6T2OIs7deZEHetGHeuedmB0kBIVnRo8Eo3fM";
 function GoodReads() {
   var self = this;
   self.searchurl = "https://www.goodreads.com/search.xml?key="+GOODREADS_API_KEY+"&q=";
+
+  self.getEvents = function(zipcode, cb) {
+    var url = "https://www.goodreads.com/event/index.xml?search[zip_code]="+zipcode+"&key="+GOODREADS_API_KEY;
+    var listOfEvents = {};
+    console.log(url);
+    //Send GET request to GoodReads API Events Endpoint
+    sendGetRequest(url).then(function(xmlResponse) {
+      xmlToJSON(xmlResponse).then(function(jsonRes) {
+        return cb(null, jsonRes);
+      }, function(jsonError) {
+        return cb(jsonError, null);
+      });
+    }, function(xmlError) {
+      if (xmlError) {
+        return cb(xmlError, null);
+      }
+    });
+  };
+
   self.getBook = function(title, cb) {
     //Check if book title is given
     if (!title || title.length <= 0) {
@@ -50,6 +69,7 @@ function GoodReads() {
         if (err) {
           reject(err);
         }
+        console.log(body);
         resolve(body);
       });
     });
@@ -72,6 +92,20 @@ function GoodReads() {
         resolve(bookResults);
       });
     });
+  }
+  /**
+  * TODO
+  * Refactor as parseResponse
+  */
+  function xmlToJSON(xmlResponse) {
+    return new Promise(function(resolve, reject) {
+      parseString(xmlResponse, function(err, result) {
+        if (err) {
+          reject(err);
+        }
+        resolve(result);
+      })
+    })
   }
 
   /**
