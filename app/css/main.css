@@ -1,9 +1,181 @@
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important;
 }
+button#sign-out.btn.btn-link,
+button#sign-in.btn.btn-link {
+  float: right;
+  margin-top: 10px;
+  color: #a2c3c3;
+}
+
+div#top-container {
+  min-height: 400px;
+}
 
 html, body {
+  padding-top: 32px;
   font-family: 'Roboto', 'Helvetica', sans-serif;
+  background-color: #596070;
+}
+
+div#footer.jumbotron {
+  border-top: 10px solid #d0e1e1;
+  background-color: #596070;
+  margin: 0;
+  color: #d0e1e1;
+  padding: 50px;
+}
+#footer  a {
+  color: #ffffff;
+}
+
+div.circle-icon:hover {
+  background-color: #4f5563;
+}
+
+div.circle-icon {
+  background-color: #596070;
+  border: 2px solid #4f5563;
+  width: 150px;
+  height: 150px;
+  border-radius: 30px;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+.list-group-item {
+  border-left: 2px solid #009900;
+  border-top: 2px solid #009900;
+  border-right: 2px solid #008000;
+  font-size: 1.3em;
+  font-weight: 500;
+}
+.list-group-item.more:hover {
+  background-color: #ffff80;
+}
+.list-group-item.more {
+  background-color: #ffffe6;
+  border-bottom: 2px solid #008000;
+}
+
+.list-group-item:hover {
+  background-color: #00cc00;
+}
+li.list-group-item.active {
+  background-color: #00cc00;
+}
+li.list-group-item.active:hover {
+  background-color: #00cc00;
+}
+
+.circle-icon i {
+  margin-top: 35px;
+  font-size: 4em;
+  color: #d0e1e1;
+}
+.fa.fa-leanpub {
+  color: #d0e1e1;
+}
+
+div#main-banner h2 {
+  color: #d0e1e1;
+  font-size: 4em;
+  padding: 20px;
+  margin: 60px auto;
+  border-radius: 20px;
+  text-shadow:
+  -2px -2px 0 #1e2f2f,
+  2px -2px 0 #1e2f2f,
+  -2px 2px 0 #1e2f2f,
+  2px 2px 0 #1e2f2f;
+}
+#icon-banner {
+  margin: 0;
+  padding: 100px 30px;
+}
+div#icon-banner p {
+  max-height: 200px;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 20px;
+}
+
+div#main-banner.jumbotron {
+  margin: 0;
+  height: 600px;
+  background: url('../img/library.jpg ');
+  background-attachment: fixed;
+  background-origin: initial;
+  background-clip: initial;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: 100% 0;
+  background-position: center top;
+}
+
+div#parchment-banner.jumbotron {
+  margin: 0;
+  height: 600px;
+  background: url('../img/parchment.jpg ');
+  background-attachment: fixed;
+  background-origin: initial;
+  background-clip: initial;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: 100% 0;
+  background-position: center top;
+}
+
+
+#header {
+  height: 65px;
+  border-bottom: 2px solid #00cc00;
+  background-color: #596070;
+  margin: 0;
+}
+#header a {
+  letter-spacing: 1px;
+  color: #ffffff;
+  border-radius: 10px;
+  margin: 5px 1px;
+}
+#header ul a:active,
+#header ul a:focus,
+#header ul a:hover
+{
+  background-color: #4f5563;
+  color: #ffffff;
+}
+
+#header ul li.active a
+{
+  background-color: #4f5563;
+  color: #00cc00;
+}
+#header ul a:focus,hover
+{
+  background-color: #4f5563;
+  color: #ffffff;
+}
+
+#header a.navbar-brand {
+  font-size: 1.2em;
+  color: #ffffff;
+}
+#header a.navbar-brand:hover {
+  font-size: 1.2em;
+  color: #ffffff;
+}
+ul.nav.navbar-nav {
+  background-color: #596070;
+}
+#login-button {
+  position: absolute;
+  right: 0;
+}
+#logout-button {
+  position: absolute;
+  right: 0;
 }
 
 #user-pic {
@@ -49,4 +221,5 @@ html, body {
     float: right;
     color: #0034c2;
   }
+
 

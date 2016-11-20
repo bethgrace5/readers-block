@@ -41,8 +41,8 @@
   <body ng-controller="MainCtrl as main" ng-cloak>
 
     <ng-include src="'app/views/header.html'"></ng-include>
-    <div ng-controller="MainCtrl" ng-view=""></div>
-    <!-- <ng-include src="'views/footer.html'"></ng-include> -->
+    <div id="top-container" ng-controller="MainCtrl" ng-view=""></div>
+    <ng-include src="'app/views/footer.html'"></ng-include>
 
     <script src="app/lib/bower_components/jquery/dist/jquery.min.js"></script>
     <script src="app/lib/bower_components/angular/angular.min.js"></script>
