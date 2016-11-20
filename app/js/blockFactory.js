@@ -23,7 +23,7 @@ angular.module('readers-block')
   var addBlock = function(newUserBlock) {
     var uid = auth.currentUser.uid;
 
-    var blockRef = database.ref('users').child(uid).child('blocks').push();
+    var blockRef = database.ref('users/'+uid+'/blocks').set(newUserBlock);
     blockRef.set(newUserBlock).then(
       function(success) {
         notifyObservers();

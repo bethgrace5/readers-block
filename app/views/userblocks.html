@@ -31,7 +31,14 @@
             <textarea type="text" ng-model="newBlock.description" class="form-control"></textarea>
             <label for="">Tags</label>
             <textarea type="text" ng-model="newBlock.tags" class="form-control"></textarea>
-            <button type="button" class="btn btn-primary" ng-click="createNewBlock()">Create Block</button>
+            <button type="button" class="btn btn-primary" ng-click="createNewBlock()">
+              <span ng-hide="editing">
+                Create
+              </span>
+              <span ng-show="editing">
+                Save
+              </span>
+            </button>
           </form>
         </div>
       <div class="panel-body" id="list-container">
@@ -41,6 +48,7 @@
               {{value.title}}
             </a>
             <button class="btn btn-warning" ng-click="deleteBlock(key)">Delete Block</button>
+            <button class="btn btn-info" ng-click="editBlock(key)">Edit Block</button>
           </li>
           <li class="list-group-item">{{value.description}}</li>
           <li class="list-group-item">{{value.tags}}</li>
