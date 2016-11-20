@@ -5,6 +5,10 @@ angular.module('readers-block')
     $scope.blockId = $location.search().block;
     $scope.singleBlock = $scope.user.blocks[$scope.blockId];
 
+    $scope.empty = function() {
+      return _.isEmpty($scope.singleBlock.books);
+    }
+
     $scope.findBook = function() {
       $scope.bookResults = [];
       var bookTitle = $scope.search.book_title;
