@@ -1,17 +1,6 @@
 'use strict';
 angular.module('readers-block')
   .controller('SingleBlockCtrl', function ($scope, $http, $timeout, loginFactory, blockFactory, $location){
-    // blockFactory.registerObserverCallback(
-    //   function() {
-    //     $timeout(function() {
-    //       console.log('----Updating Stuff----')
-    //       $scope.user = loginFactory.getUser();
-    //       $scope.env = loginFactory.getEnv();
-    //       $scope.$apply();
-    //     });
-    //   }
-    // );
-    //look into main for watch/observables
     $scope.user = loginFactory.getUser();
     $scope.blockId = $location.search().block;
     $scope.singleBlock = $scope.user.blocks[$scope.blockId];
@@ -37,6 +26,14 @@ angular.module('readers-block')
       newBook.thumbnail_image = book.thumbnail_image;
       console.log('Sending book to factory');
       blockFactory.addBook(newBook, $scope.blockId);
+      updateBookList();
+    }
+
+    function updateBookList() {
+      console.log('Updating Book list');
+      $scope.user = loginFactory.getUser();
+      $scope.blockId = $location.search().block;
+      $scope.singleBlock = $scope.user.blocks[$scope.blockId];
     }
 
 });

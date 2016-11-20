@@ -49,7 +49,7 @@ angular.module('readers-block')
         console.log('ERROR');
       });
 
-    bookRef.on('child_added', notifyObservers());
+    // bookRef.on('child_added', notifyObservers());
   };
     /*
             database.ref('users').child(u.uid).child('blocks').push({

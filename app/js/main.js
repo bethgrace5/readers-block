@@ -251,7 +251,9 @@ angular.module('readers-block')
   blockFactory.registerObserverCallback(
     function() {
       $timeout(function() {
-        loginFactory.updateBookList();
+        $scope.user = loginFactory.getUser();
+        $scope.env = loginFactory.getEnv();
+        $scope.$apply();
       });
     }
   );
