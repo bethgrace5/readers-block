@@ -119,4 +119,3 @@ angular.module('readers-block')
 
   return service
 });
-

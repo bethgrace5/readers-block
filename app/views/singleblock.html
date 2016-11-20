@@ -1,11 +1,22 @@
-{{ user.blocks }}
 <div class="row user-block" ng-show="env.loggedIn">
   <div class="col-xs-10 col-xs-offset-1">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">{{title}}</h3>
+        <h3 class="panel-title">{{singleBlock.title}}</h3>
       </div>
       <div class="panel-body" id="list-container">
+        <ul>
+          <li>{{singleBlock.description}}</li>
+          <li>{{singleBlock.rating.user_rating}}</li>
+          <li>{{singleBlock.community_rating}}</li>
+        </ul>
+      </div>
+      <hr>
+      <div class="panel-body" id="list-container">
+        <h4>Books</h4>
+        <ul ng-repeat="books in {{singleBlock.books}}">
+
+        </ul>
       </div>
     </div>
   </div>

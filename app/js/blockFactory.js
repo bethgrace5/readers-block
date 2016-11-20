@@ -6,8 +6,10 @@ angular.module('readers-block')
   var auth = firebase.auth();
   var observerCallbacks = [];
 
-  var getSingleBlock = function(blockId) {
-    console.log('Hello World');
+  var querySingleBlock = function(blockId) {
+    var uid = auth.currentUser.uid;
+    console.log(blockId);
+    return "Hello World";
   };
 
   // call this to notify observers
@@ -81,6 +83,9 @@ angular.module('readers-block')
     },
     getEnv: function() {
       return env;
+    },
+    getSingleBlock: function(blockId) {
+      return querySingleBlock(blockId);
     },
     registerObserverCallback: function(callback){
       observerCallbacks.push(callback);
