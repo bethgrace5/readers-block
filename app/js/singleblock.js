@@ -31,16 +31,15 @@ angular.module('readers-block')
       newBook.title = book.title;
       newBook.author = book.author;
       newBook.thumbnail_image = book.thumbnail_image;
-      console.log('Sending book to factory');
       blockFactory.addBook(newBook, $scope.blockId);
-      updateBookList();
-    }
+      updateBookList(newBook);
+    };
 
-    function updateBookList() {
-      console.log('Updating Book list');
-      $scope.user = loginFactory.getUser();
-      $scope.blockId = $location.search().block;
-      $scope.singleBlock = $scope.user.blocks[$scope.blockId];
+    //TODO
+    //Workaround for updating the View
+    //Probably bad practice
+    function updateBookList(newBook) {
+      $scope.singleBlock.books.push(newBook);
     }
 
 });
