@@ -36,6 +36,10 @@ div#footer.jumbotron {
   color: #ffffff;
 }
 
+button#btn-subscribe {
+  margin: 0.5em 0;
+}
+
 div.circle-icon:hover {
   background-color: #4f5563;
 }
