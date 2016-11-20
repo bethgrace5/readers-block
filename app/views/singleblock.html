@@ -5,49 +5,62 @@
         <h3 class="panel-title">{{singleBlock.title}}</h3>
       </div>
       <div class="panel-body" id="list-container">
-        <ul>
-          <li>{{singleBlock.description}}</li>
-          <li>{{singleBlock.rating.user_rating}}</li>
-          <li>{{singleBlock.community_rating}}</li>
-        </ul>
+        <p>
+        {{singleBlock.description}}
+        </p>
+        <div>
+          {{singleBlock.rating.user_rating}}
+          {{singleBlock.community_rating}}
+        </div>
       </div>
       <hr>
       <div class="panel-body" id="list-container">
         <h4>Books</h4>
-        <ul>
-          <li ng-repeat="book in singleBlock.books">
-            <img ng-src="{{book.thumbnail_image}}" alt="">
-            {{book.title}}
-            {{book.author}}
-          </li>
-        </ul>
+        <div class="row" ng-show="empty()">
+          <div class="col-xs-12">
+            <p class="lead">
+            You haven't added any books yet!
+            </p>
+          </div>
+        </div>
+        <div class="row" ng-repeat="book in singleBlock.books">
+          <div id="book-list">
+            <div style="float: left; margin-right: 10px;">
+              <div ng-show="book.thumbnail_image.length > 0">
+                <img style="margin-top: 5px;" ng-src="{{book.thumbnail_image}}" alt="">
+              </div>
+              <div ng-hide="book.thumbnail_image.length > 0">
+                <img style="width: 50px;" src="app/img/placeholder.jpg" alt="">
+              </div>
+            </div>
+            <p class="lead"> <strong>{{book.title}} </strong><br/>{{book.author}} </p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-
-<div class="row user-block" ng-show="env.loggedIn">
-  <div class="col-xs-10 col-xs-offset-1">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">Add A Book</h3>
-      </div>
-      <div class="panel-body" id="list-container">
-        <input type="text" ng-model="search.book_title" class="form-control" placeholder="Goosebumps">
-        <button class="btn btn-primary" ng-click="findBook()">Search for Book</button>
-        <div ng-show="flashMessage" class="{{flashMessage.type}}">
-          {{flashMessage.msg}}
+  <div class="row user-block" ng-show="env.loggedIn">
+    <div class="col-xs-10 col-xs-offset-1">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Add A Book</h3>
         </div>
-        <ul>
-          <li ng-repeat="book in bookResults">
+        <div class="panel-body" id="list-container">
+          <input type="text" ng-model="search.book_title" class="form-control" placeholder="Goosebumps">
+          <button class="btn btn-primary" ng-click="findBook()">Search for Book</button>
+          <div ng-show="flashMessage" class="{{flashMessage.type}}">
+            {{flashMessage.msg}}
+          </div>
+          <ul>
+            <li ng-repeat="book in bookResults">
             <img ng-src="{{book.thumbnail_image}}" alt="">
             {{book.title}}
             {{book.author}}
             <button class="btn btn-primary" ng-click="addBookToBlock(book)">Add To Block</button>
-          </li>
-        </ul>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
-</div>
