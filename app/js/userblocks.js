@@ -3,6 +3,7 @@ angular.module('readers-block')
   .controller('UserBlocksCtrl', function ($scope, $http, loginFactory, blockFactory){
     $scope.newBlock = { title: "", description: "", tags: "" };
     $scope.editing = false;
+    $scope.selectedId = 0;
 
     // remove invalid angular key ($$hashKey) that won't set in firebase
     function cleanBlockList() {
@@ -14,6 +15,11 @@ angular.module('readers-block')
       });
       return blocks;
     };
+
+    $scope.selectBlock = function(id) {
+      $scope.selectedId = id;
+      $scope.newBlock = $scope.user.blocks[id];
+    }
 
     $scope.editBlock = function(blockId) {
       $scope.editing = true;
