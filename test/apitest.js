@@ -19,7 +19,7 @@ describe('Readers Block API', function() {
   it('should allow you to search for a book', function(done) {
     var bookName = "Game of Thrones";
     chai.request(app)
-      .get('/api/find_books/' + bookName)
+      .get('/api/findbook/' + bookName)
       .end(function(err, res) {
         expect(err).to.be.null;
         expect(res).to.have.status(200);
@@ -34,12 +34,12 @@ describe('Readers Block API', function() {
   it('should respond with an error with invalid results', function(done) {
     var bookName = "asdi8912en;awd[]";
     chai.request(app)
-      .get('/api/find_books/' + bookName)
+      .get('/api/findbook/' + bookName)
       .end(function(err, res) {
-        expect(res).to.have.status(500);
-        expect(err).to.not.be.null;
+        expect(res).to.have.status(200);
+        expect(err).to.be.null;
         expect(res.body).to.be.a('object');
-        expect(res.body).to.have.keys('error');
+        expect(res.body.results).to.equal("Results Not Found");
         done();
       });
   });
