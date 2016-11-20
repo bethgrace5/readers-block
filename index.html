@@ -41,7 +41,7 @@
   <body ng-controller="MainCtrl as main" ng-cloak>
 
     <ng-include src="'app/views/header.html'"></ng-include>
-    <div ng-view=""></div>
+    <div ng-controller="MainCtrl" ng-view=""></div>
     <!-- <ng-include src="'views/footer.html'"></ng-include> -->
 
     <script src="app/lib/bower_components/jquery/dist/jquery.min.js"></script>
@@ -67,7 +67,7 @@
     </script>
     <script src="app/js/app.js"></script>
     <script src="app/js/loginFactory.js"></script>
-    <script src="app/js/BlockFactory.js"></script>
+    <script src="app/js/blockFactory.js"></script>
     <script src="app/js/main.js"></script>
     <script src="app/js/account.js"></script>
     <script src="app/js/searchbook.js"></script>

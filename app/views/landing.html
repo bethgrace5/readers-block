@@ -2,8 +2,10 @@
   <div class="row user-block" ng-show="env.loggedIn">
     <div class="col-xs-10 col-xs-offset-1">
       <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">{{user.name}}'s Block</h3>
+        <div class="panel-heading" style="cusor: pointer">
+          <a href="#/myblocks">
+            <h3 class="panel-title">{{user.name}}'s Blocks</h3>
+          </a>
         </div>
         <div class="panel-body" id="list-container">
 
@@ -13,48 +15,48 @@
                 <li class="list-group-item">
                 {{item.title}}
                 <span class="community-ratings">
-                    <!-- 0.5 -->
-                    <i class="fa fa-star-o"      ng-show="item.rating.user_rating < 0.5"></i>
-                    <i class="fa fa-star-half-o" ng-show="item.rating.user_rating == 0.5"></i>
-                    <i class="fa fa-star"        ng-show="item.rating.user_rating >= 0.5"></i>
-                    <!-- 1.5 -->
-                    <i class="fa fa-star-o"      ng-show="item.rating.user_rating < 1.5"></i>
-                    <i class="fa fa-star-half-o" ng-show="item.rating.user_rating == 1.5"></i>
-                    <i class="fa fa-star"        ng-show="item.rating.user_rating >= 1.5"></i>
-                    <!-- 2.5 -->
-                    <i class="fa fa-star-o"      ng-show="item.rating.user_rating < 2.5"></i>
-                    <i class="fa fa-star-half-o" ng-show="item.rating.user_rating == 2.5"></i>
-                    <i class="fa fa-star"        ng-show="item.rating.user_rating >= 2.5"></i>
-                    <!-- 3.5 -->
-                    <i class="fa fa-star-o"      ng-show="item.rating.user_rating < 3.5"></i>
-                    <i class="fa fa-star-half-o" ng-show="item.rating.user_rating == 3.5"></i>
-                    <i class="fa fa-star"        ng-show="item.rating.user_rating >= 3.5"></i>
-                    <!-- 4.5 -->
-                    <i class="fa fa-star-o"      ng-show="item.rating.user_rating < 4.5"></i>
-                    <i class="fa fa-star-half-o" ng-show="item.rating.user_rating == 4.5"></i>
-                    <i class="fa fa-star"        ng-show="item.rating.user_rating >= 4.5"></i>
+                  <!-- 0.5 -->
+                  <i class="fa fa-star-o"      ng-show="item.rating.user_rating < 0.5"></i>
+                  <i class="fa fa-star-half-o" ng-show="item.rating.user_rating == 0.5"></i>
+                  <i class="fa fa-star"        ng-show="item.rating.user_rating >= 0.5"></i>
+                  <!-- 1.5 -->
+                  <i class="fa fa-star-o"      ng-show="item.rating.user_rating < 1.5"></i>
+                  <i class="fa fa-star-half-o" ng-show="item.rating.user_rating == 1.5"></i>
+                  <i class="fa fa-star"        ng-show="item.rating.user_rating >= 1.5"></i>
+                  <!-- 2.5 -->
+                  <i class="fa fa-star-o"      ng-show="item.rating.user_rating < 2.5"></i>
+                  <i class="fa fa-star-half-o" ng-show="item.rating.user_rating == 2.5"></i>
+                  <i class="fa fa-star"        ng-show="item.rating.user_rating >= 2.5"></i>
+                  <!-- 3.5 -->
+                  <i class="fa fa-star-o"      ng-show="item.rating.user_rating < 3.5"></i>
+                  <i class="fa fa-star-half-o" ng-show="item.rating.user_rating == 3.5"></i>
+                  <i class="fa fa-star"        ng-show="item.rating.user_rating >= 3.5"></i>
+                  <!-- 4.5 -->
+                  <i class="fa fa-star-o"      ng-show="item.rating.user_rating < 4.5"></i>
+                  <i class="fa fa-star-half-o" ng-show="item.rating.user_rating == 4.5"></i>
+                  <i class="fa fa-star"        ng-show="item.rating.user_rating >= 4.5"></i>
                 </span>
                 <span class="critic-ratings">
-                    <!-- 0.5 -->
-                    <i class="fa fa-star-o"      ng-show="item.rating.community_rating < 0.5"></i>
-                    <i class="fa fa-star-half-o" ng-show="item.rating.community_rating == 0.5"></i>
-                    <i class="fa fa-star"        ng-show="item.rating.community_rating >= 0.5"></i>
-                    <!-- 1.5 -->
-                    <i class="fa fa-star-o"      ng-show="item.rating.community_rating < 1.5"></i>
-                    <i class="fa fa-star-half-o" ng-show="item.rating.community_rating == 1.5"></i>
-                    <i class="fa fa-star"        ng-show="item.rating.community_rating >= 1.5"></i>
-                    <!-- 2.5 -->
-                    <i class="fa fa-star-o"      ng-show="item.rating.community_rating < 2.5"></i>
-                    <i class="fa fa-star-half-o" ng-show="item.rating.community_rating == 2.5"></i>
-                    <i class="fa fa-star"        ng-show="item.rating.community_rating >= 2.5"></i>
-                    <!-- 3.5 -->
-                    <i class="fa fa-star-o"      ng-show="item.rating.community_rating < 3.5"></i>
-                    <i class="fa fa-star-half-o" ng-show="item.rating.community_rating == 3.5"></i>
-                    <i class="fa fa-star"        ng-show="item.rating.community_rating >= 3.5"></i>
-                    <!-- 4.5 -->
-                    <i class="fa fa-star-o"      ng-show="item.rating.community_rating < 4.5"></i>
-                    <i class="fa fa-star-half-o" ng-show="item.rating.community_rating == 4.5"></i>
-                    <i class="fa fa-star"        ng-show="item.rating.community_rating >= 4.5"></i>
+                  <!-- 0.5 -->
+                  <i class="fa fa-star-o"      ng-show="item.rating.community_rating < 0.5"></i>
+                  <i class="fa fa-star-half-o" ng-show="item.rating.community_rating == 0.5"></i>
+                  <i class="fa fa-star"        ng-show="item.rating.community_rating >= 0.5"></i>
+                  <!-- 1.5 -->
+                  <i class="fa fa-star-o"      ng-show="item.rating.community_rating < 1.5"></i>
+                  <i class="fa fa-star-half-o" ng-show="item.rating.community_rating == 1.5"></i>
+                  <i class="fa fa-star"        ng-show="item.rating.community_rating >= 1.5"></i>
+                  <!-- 2.5 -->
+                  <i class="fa fa-star-o"      ng-show="item.rating.community_rating < 2.5"></i>
+                  <i class="fa fa-star-half-o" ng-show="item.rating.community_rating == 2.5"></i>
+                  <i class="fa fa-star"        ng-show="item.rating.community_rating >= 2.5"></i>
+                  <!-- 3.5 -->
+                  <i class="fa fa-star-o"      ng-show="item.rating.community_rating < 3.5"></i>
+                  <i class="fa fa-star-half-o" ng-show="item.rating.community_rating == 3.5"></i>
+                  <i class="fa fa-star"        ng-show="item.rating.community_rating >= 3.5"></i>
+                  <!-- 4.5 -->
+                  <i class="fa fa-star-o"      ng-show="item.rating.community_rating < 4.5"></i>
+                  <i class="fa fa-star-half-o" ng-show="item.rating.community_rating == 4.5"></i>
+                  <i class="fa fa-star"        ng-show="item.rating.community_rating >= 4.5"></i>
                 </span>
 
               </div>
@@ -90,26 +92,25 @@
   </div>
 </div>
 
-  <div class="row user-block" ng-show="env.loggedIn">
-    <div class="col-xs-10 col-xs-offset-1">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">Most Recent</h3>
-        </div>
-        <div class="panel-body" id="list-container">
-          <ul class="list-group col-xs-12 col-sm-6">
-            <li class="list-group-item">School Books</li>
-            <li class="list-group-item">Summer 2016</li>
-            <li class="list-group-item">Scary Titles</li>
-            <li class="list-group-item">American History</li>
-          </ul>
-          <ul class="list-group col-xs-12 col-sm-6">
-            <li class="list-group-item">Documentaries</li>
-            <li class="list-group-item">Sad Titles</li>
-            <li class="list-group-item">Thrillers</li>
-            <li class="list-group-item">Fall 2016</li>
-          </ul>
-        </div>
+<div class="row user-block" ng-show="env.loggedIn">
+  <div class="col-xs-10 col-xs-offset-1">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Most Recent</h3>
+      </div>
+      <div class="panel-body" id="list-container">
+        <ul class="list-group col-xs-12 col-sm-6">
+          <li class="list-group-item">School Books</li>
+          <li class="list-group-item">Summer 2016</li>
+          <li class="list-group-item">Scary Titles</li>
+          <li class="list-group-item">American History</li>
+        </ul>
+        <ul class="list-group col-xs-12 col-sm-6">
+          <li class="list-group-item">Documentaries</li>
+          <li class="list-group-item">Sad Titles</li>
+          <li class="list-group-item">Thrillers</li>
+          <li class="list-group-item">Fall 2016</li>
+        </ul>
       </div>
     </div>
   </div>
