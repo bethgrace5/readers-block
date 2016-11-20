@@ -8,6 +8,13 @@ button#sign-in.btn.btn-link {
   color: #a2c3c3;
 }
 
+div#book-list {
+  border-radius: 10px;
+  padding: 10px;
+  margin: 2px 5px;
+  background-color: #d0e1e1;
+}
+
 div#top-container {
   min-height: 400px;
 }
