@@ -23,7 +23,6 @@ server.get('/', function(req, res) {
 Router.get('/', function(req, res) {
   res.json({ msg: "Readers Block API "});
 });
-
 //GET /api/findbook/bookname
 Router.get('/findbook/:name', function(req, res) {
   var book_name = req.params.name;
@@ -45,6 +44,10 @@ Router.get('/events/:zipcode', function(req, res) {
     }
     res.status(200).json({ events: listOfEvents });
   });
+});
+
+Router.get('/*', function(req, res) {
+  res.status(404).json({ msg: "Not Found"});
 });
 
 //Mount middleware for /api/ routing
