@@ -10,11 +10,15 @@
         <div class="panel-body" id="list-container">
           <ul class="list-group">
             <div class="row">
+              <div class="col-xs-12">
+                <button ng-click="reset() "  class="btn btn-default form-control">
+                  Add New
+                  <span class="glyphicon glyphicon-plus"></span>
+                </button>
+              </div>
               <div ng-repeat="(key, value) in user.blocks" class="col-xs-12">
-                <li class="list-group-item" ng-click="selectBlock(key)">
+                <li ng-class="isactive(key)" class="list-group-item" ng-click="selectBlock(key)">
                   {{value.title}}
-                  <button class="btn btn-default" ng-click="deleteBlock(key)">Delete</button>
-                  <button class="btn btn-default" ng-click="selectBlock(key)">Edit</button>
                   <a class="btn btn-default" href="#/myblocks/block/?block={{key}}">View</a>
                 </li>
               </div>
@@ -24,10 +28,18 @@
       </div>
     </div>
     <div class="col-xs-8" ng-show="env.loggedIn">
-      <div class="panel panel-default">
+
+      <div class="panel panel-default" ng-show="selectedId >= 0">
+
         <div class="panel-heading">
-          <h3 class="panel-title">My Blocks</h3>
+          <p ng-show="selectedId >= 0" class="lead">
+          Edit Block
+          </p>
+          <p ng-show="selectedId < 0" class="lead">
+          Create New Block
+          </p>
         </div>
+
         <div class="panel-body">
           <form action="">
             <label for="">Title</label>
@@ -36,26 +48,57 @@
             <textarea type="text" ng-model="user.blocks[selectedId].description" class="form-control"></textarea>
             <label for="">Tags</label>
             <textarea type="text" ng-model="user.blocks[selectedId].tags" class="form-control"></textarea>
-            <button type="button" class="btn btn-primary" ng-click="createNewBlock()">
-              <span ng-hide="editing">
+            <button style="margin-top: 15px;" type="button" class="btn btn-success pull-right" ng-click="createNewBlock()">
+              <span ng-show="selectedId < 0">
                 Create
               </span>
-              <span ng-show="editing">
+              <span ng-show="selectedId >= 0">
+                Save
+              </span>
+            </button>
+            <button style="margin-top: 15px;" type="button" class="btn btn-danger pull-right" ng-click="deleteBlock(selectedId)">
+              Delete
+            </button>
+          </form>
+        </div>
+
+    </div>
+
+
+      <div class="panel panel-default" ng-show="selectedId < 0">
+
+        <div class="panel-heading">
+          <p ng-show="selectedId >= 0" class="lead">
+          Edit Block
+          </p>
+          <p ng-show="selectedId < 0" class="lead">
+          Create New Block
+          </p>
+        </div>
+
+        <div class="panel-body">
+          <form action="">
+            <label for="">Title</label>
+            <input type="text" ng-model="newBlock.title" class="form-control">
+            <label for="">Description</label>
+            <textarea type="text" ng-model="newBlock.description" class="form-control"></textarea>
+            <label for="">Tags</label>
+            <textarea type="text" ng-model="newBlock.tags" class="form-control"></textarea>
+            <button style="margin-top: 15px;" type="button" class="btn btn-success pull-right" ng-click="createNewBlock()">
+              <span ng-show="selectedId < 0">
+                Create
+              </span>
+              <span ng-show="selectedId >= 0">
                 Save
               </span>
             </button>
           </form>
         </div>
-      <div class="panel-body" id="list-container">
-        <ul ng-repeat="(key, value) in user.blocks" class="list-group col-xs-12 col-sm-12">
-          <a href="#/myblocks/block/?block={{key}}"> {{value.title}} </a>
-          <button class="btn btn-warning" ng-click="deleteBlock(key)">Delete Block</button>
-          <button class="btn btn-info" ng-click="editBlock(key)">Edit Block</button>
-          <p>{{value.description}}</p>
-          <p>{{value.tags}}</p>
-        </ul>
-      </div>
+
     </div>
+
+
+
   </div>
 </div>
 

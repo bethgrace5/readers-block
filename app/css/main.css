@@ -50,11 +50,14 @@ div.circle-icon {
   cursor: pointer;
 }
 
+.btn-success {
+  background-color: #009900;
+}
+
 .list-group-item {
   border-left: 2px solid #009900;
   border-top: 2px solid #009900;
   border-right: 2px solid #008000;
-  font-size: 1.3em;
   font-weight: 500;
 }
 .list-group-item.more:hover {
@@ -66,13 +69,13 @@ div.circle-icon {
 }
 
 .list-group-item:hover {
-  background-color: #00cc00;
+  background-color: #94b8b8;
 }
 li.list-group-item.active {
-  background-color: #00cc00;
+  background-color: #94b8b8;
 }
 li.list-group-item.active:hover {
-  background-color: #00cc00;
+  background-color: #94b8b8;
 }
 
 .circle-icon i {
