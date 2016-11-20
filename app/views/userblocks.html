@@ -34,6 +34,20 @@
             <button type="button" class="btn btn-primary" ng-click="createNewBlock()">Create Block</button>
           </form>
         </div>
+      <div class="panel-body" id="list-container">
+        <ul ng-repeat="(key, value) in user.blocks" class="list-group col-xs-12 col-sm-12">
+          <li class="list-group-item">
+            <a href="#/myblocks/block/?block={{key}}">
+              {{value.title}}
+            </a>
+            <button class="btn btn-warning" ng-click="deleteBlock(key)">Delete Block</button>
+          </li>
+          <li class="list-group-item">{{value.description}}</li>
+          <li class="list-group-item">{{value.tags}}</li>
+          <ul ng-repeat="book in value.books">
+            <li>{{book.title}}</li>
+          </ul>
+        </ul>
       </div>
     </div>
   </div>
