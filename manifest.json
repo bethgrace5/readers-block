@@ -1,6 +1,6 @@
 {
-  "name": "Friendly Chat",
-  "short_name": "Friendly Chat",
+  "name": "Reader's Block",
+  "short_name": "Reader's Block",
   "start_url": "/index.html",
   "display": "standalone",
   "orientation": "portrait"

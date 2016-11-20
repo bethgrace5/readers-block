@@ -8,7 +8,19 @@ angular.module('readers-block')
     };
 
     $scope.createNewBlock = function() {
-      blockFactory.add($scope.newBlock);
+      // blockFactory.add($scope.newBlock);
+      updateBlockList($scope.newBlock);
       $scope.newBlock = {};
+    };
+
+    $scope.deleteBlock = function(blockId) {
+      blockFactory.delete(blockId);
+    };
+
+    //TODO
+    //Workaround for updating the View
+    //Probably bad practice
+    function updateBlockList(newBook) {
+      $scope.user.blocks['workaround'] = newBook;
     }
 });

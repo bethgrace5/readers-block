@@ -101,6 +101,7 @@ angular.module('readers-block')
       notifyObservers();
     },
     updateBookList: function() {
+      console.log('Updating book list');
       updateLoginDate(user);
     },
     checkSignedIn: function() {

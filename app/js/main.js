@@ -1,9 +1,16 @@
 'use strict';
 angular.module('readers-block')
   .controller('MainCtrl', function ($scope, $rootScope, $timeout, $location, loginFactory, blockFactory){
+  $scope.activeTab = 'home';
 
-  $scope.close = function() {
-    console.log('close');
+  $scope.isActive = function(item) {
+    if (item == $scope.activeTab) {
+      return 'active';
+    }
+  }
+
+  $scope.close = function(tab) {
+    $scope.activeTab = tab;
     $('#navbar').collapse('hide');
   }
 
@@ -251,7 +258,9 @@ angular.module('readers-block')
   blockFactory.registerObserverCallback(
     function() {
       $timeout(function() {
-        loginFactory.updateBookList();
+        $scope.user = loginFactory.getUser();
+        $scope.env = loginFactory.getEnv();
+        $scope.$apply();
       });
     }
   );

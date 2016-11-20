@@ -33,6 +33,13 @@ angular.module('readers-block')
       });
   };
 
+  var deleteBlock = function(blockId) {
+    var uid = auth.currentUser.uid;
+    database.ref('users/'+uid+"/blocks/"+blockId).remove();
+  };
+
+
+
   var addBookToBlock = function(newBook, blockId) {
     var uid = auth.currentUser.uid;
 
@@ -49,7 +56,7 @@ angular.module('readers-block')
         console.log('ERROR');
       });
 
-    bookRef.on('child_added', notifyObservers());
+    // bookRef.on('child_added', notifyObservers());
   };
     /*
             database.ref('users').child(u.uid).child('blocks').push({
@@ -102,6 +109,9 @@ angular.module('readers-block')
     addBook: function(newBook, blockId) {
       console.log('Adding Book');
       addBookToBlock(newBook, blockId);
+    },
+    delete: function(blockId) {
+      deleteBlock(blockId);
     },
     getEnv: function() {
       return env;

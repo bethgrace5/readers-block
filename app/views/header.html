@@ -1,38 +1,36 @@
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#/">Reader's Block</a>
-    </div>
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="navbar">
-      <ul class="nav navbar-nav">
-        <li><a href="#/account" class="active" ng-click="close()">Account</a></li>
-        <li><a href="#/" class="" ng-click="close()">Link</a></li>
-        <form class="navbar-form navbar-left">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-      </form>
-      <ul class="nav navbar-nav navbar-right">
-        <li><div ng-show="env.loggedIn" href="myblocks/" id="user-pic" ng-style="{'background-image':'url('+user.img+')'}"></div></li>
-        <li> <a href="#/myblocks"><div ng-show="env.loggedIn" id="user-name">{{user.name}}</div></a></li>
-        <li>
-          <button ng-show="env.loggedIn" ng-click="signOut()" id="sign-out" class="btn btn-link">
-            Sign-out
-          </button>
-          <button ng-hide="env.loggedIn" ng-click="signIn('google')" id="sign-in" class="btn btn-link">
-            Sign-in with Google
-          </button>
-        </li>
-      </ul>
-    </div>
-  </div>
+<nav class="navbar navbar-default navbar-fixed-top" id="header">
+<!-- Brand and toggle get grouped for better mobile display -->
+<div class="navbar-header">
+  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+    <span class="sr-only">Toggle navigation</span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+  <a ng-click="close('home')"class="navbar-brand" href="#/">
+    <i class="fa fa-leanpub" aria-hidden="true"></i>
+    Reader's Block</a>
+</div>
+<!-- Collect the nav links, forms, and other content for toggling -->
+<div class="collapse navbar-collapse" id="navbar">
+  <ul class="nav navbar-nav">
+    <li ng-class="isActive('home')"><a href="#/" ng-click="close('home')">Home</a></li>
+    <li ng-class="isActive('blocks')"><a href="#/searchbook" ng-click="close('blocks')">Books!</a></li>
+    <li ng-class="isActive('account')"><a href="#/account" ng-click="close('account')">Account</a></li>
+    <li ng-class="isActive('searchbook')"><a href="#/searchbook" ng-click="close('searchbook')">Create Block</a></li>
+    <li ng-class="isActive('myblocks')"><a href="#/myblocks" ng-click="close('myblocks')">My Blocks</a></li>
+  </ul>
+    <button ng-show="env.loggedIn" ng-click="signOut()" id="sign-out" class="btn btn-link">
+      Sign-out
+    </button>
+    <button ng-hide="env.loggedIn" ng-click="signIn('google')" id="sign-in" class="btn btn-link">
+      Sign-in with Google
+    </button>
+  <ul class="nav navbar-nav navbar-right visible-sm visible-md visible-lg visible-xl" style="margin-right: 20px;">
+    <li> <a href="#/myblocks"><div ng-show="env.loggedIn" id="user-name">Welcome Back, {{user.name}}!</div></a></li>
+    <li><div ng-show="env.loggedIn" href="myblocks/" id="user-pic" ng-style="{'background-image':'url('+user.img+')'}" style="margin-top: 5px; border: 2px solid #4f5563;"></div></li>
+    <li>
+    </li>
+  </ul>
+</div>
 </nav>
