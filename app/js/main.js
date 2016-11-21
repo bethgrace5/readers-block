@@ -279,7 +279,7 @@ angular.module('readers-block')
       emailUnsubscribe();
       return;
     }
-    
+
     Patchwork.callPlatformMethod({
         platformId: MAILCHIMP_PLATFORM_ID,
         method: "subscribers",
@@ -289,12 +289,14 @@ angular.module('readers-block')
       return new Promise(function(resolve, reject) {
         alert("Subscribed Successfully. Please check your email for confirmation.");
         console.log('calling add-subscriber for ' + $scope.user.email);
-        loginFactory.subscribe($scope.user.uid, true);
+        loginFactory.subscribe(true);
+        $scope.user.subscribed = true;
+        $scope.$apply();
         resolve();
       });
     });
   }
-  
+
   function emailUnsubscribe() {
     Patchwork.callPlatformMethod({
         platformId: MAILCHIMP_PLATFORM_ID,
@@ -305,7 +307,9 @@ angular.module('readers-block')
       return new Promise(function(resolve, reject) {
         alert("Unsubscribed Successfully. Please check your email for confirmation.");
         console.log('calling delete-subscriber for ' + $scope.user.email);
-        loginFactory.subscribe($scope.user.uid, false);
+        loginFactory.subscribe(false);
+        $scope.user.subscribed = false;
+        $scope.$apply();
         resolve();
       });
     });

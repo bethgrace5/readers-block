@@ -15,6 +15,25 @@ angular.module('readers-block')
     });
   };
 
+  // updates that user is subscribed
+  var subscribe = function(s) {
+    var id = auth.currentUser.uid;
+    var deferred = $q.defer();
+    database.ref('users').child(id).once('value',
+      function(snapshot) {
+        // get the user data
+        // this user exists, update login date
+        database.ref('users').child(id).update({
+          'subscribed': s
+        }).then(function() {
+          deferred.resolve('successful');
+        }.bind(this)).catch(function(error) {
+          deferred.reject('error');
+        });
+      });
+    return deferred.promise;
+  }
+
   // updates login date for existing users (also adds info for new users)
   var updateLoginDate = function(u) {
     var deferred = $q.defer();
@@ -112,6 +131,9 @@ angular.module('readers-block')
     },
     getUser: function() {
       return user;
+    },
+    subscribe: function(s) {
+      subscribe(s);
     },
     getEnv: function() {
       return env;

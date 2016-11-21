@@ -1,7 +1,8 @@
 'use strict';
 angular.module('readers-block')
   .controller('UserBlocksCtrl', function ($scope, $http, loginFactory, blockFactory){
-    $scope.newBlock = { title: "", description: "", tags: "" };
+    $scope.newBlock = { title: "", description: "", tags: "", 
+    }
     $scope.editing = false;
     $scope.selectedId = -1;
 

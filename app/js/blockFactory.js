@@ -12,24 +12,6 @@ angular.module('readers-block')
     return "Hello World";
   };
   
-    // updates that user is subscribed
-    var subscribe = function(id, s) {
-      var deferred = $q.defer();
-      database.ref('users').child(id).once('value',
-          function(snapshot) {
-          // get the user data
-          // this user exists, update login date
-            database.ref('users').child(u.uid).update({
-              'subscribed': s
-            }).then(function() {
-                deferred.resolve('successful');
-              }.bind(this)).catch(function(error) {
-                deferred.reject('error');
-            });
-          });
-      return deferred.promise;
-    }
-
   // call this to notify observers
   var notifyObservers = function(){
     angular.forEach(observerCallbacks, function(callback){
@@ -154,9 +136,6 @@ angular.module('readers-block')
     },
     registerObserverCallback: function(callback){
       observerCallbacks.push(callback);
-    },
-      subscribe: function(id) {
-      subscribe(id);
     }
   };
 

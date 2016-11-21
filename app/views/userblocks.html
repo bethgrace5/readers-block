@@ -19,7 +19,7 @@
               <div ng-repeat="(key, value) in user.blocks" class="col-xs-12">
                 <li ng-class="isactive(key)" class="list-group-item" ng-click="selectBlock(key)">
                   {{value.title}}
-                  <a class="btn btn-default" href="#/myblocks/block/?block={{key}}">View</a>
+                  <a class="btn btn-info pull-right" href="#/myblocks/block/?block={{key}}">Books</a>
                 </li>
               </div>
             </div>
