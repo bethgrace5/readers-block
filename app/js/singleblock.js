@@ -41,6 +41,12 @@ angular.module('readers-block')
       return blocks;
     };
 
+    $scope.deleteBook = function(id) {
+      console.log($scope.user.blocks[$scope.blockId].books[id]);
+      $scope.user.blocks[$scope.blockId].books.splice(id, 1);
+      blockFactory.update(cleanBlockList());
+    }
+
     $scope.addBookToBlock = function(book) {
       var newBook = {};
       newBook.title = book.title;

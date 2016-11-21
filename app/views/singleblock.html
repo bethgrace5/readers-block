@@ -25,6 +25,10 @@
         </div>
         <div class="row" ng-repeat="book in singleBlock.books">
           <div id="book-list">
+            <button class="btn btn-default"  style="float: left;" ng-click="deleteBook($index)">
+              <span class="glyphicon glyphicon-remove">
+              </span>
+            </button>
             <div style="float: left; margin-right: 10px;">
               <div ng-show="book.thumbnail_image.length > 0">
                 <img style="margin-top: 5px;" ng-src="{{book.thumbnail_image}}" alt="">
