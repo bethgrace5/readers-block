@@ -62,6 +62,10 @@ angular.module('readers-block')
               'alias': u.email,
               'subscribed': false,
               'blocks' : [{
+                'rating' : {
+                  'community_rating': 0,
+                  'user_rating': 0
+                },
                 'books' : [
                 {
                   "description" : "J.R.R. Tolkien",
@@ -73,10 +77,6 @@ angular.module('readers-block')
                 'description' : "My First List",
                 'tags' : "My First List",
                 'title' : "My First List",
-                'ratings' : {
-                  'community_rating': 0,
-                  'user_rating': 0
-                }
               }]
               }).then(
                 function() {

@@ -52,7 +52,7 @@ angular.module('readers-block')
       newBook.title = book.title;
       newBook.author = book.author;
       newBook.thumbnail_image = book.thumbnail_image;
-      newBook.rating: {
+      newBook.rating = {
        community_rating: 2.5,
        user_rating: 3 
       },
