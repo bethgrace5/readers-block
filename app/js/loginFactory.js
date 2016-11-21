@@ -62,7 +62,14 @@ angular.module('readers-block')
               'alias': u.email,
               'subscribed': false,
               'blocks' : [{
-                'books' : [],
+                'books' : [
+                {
+                  "description" : "J.R.R. Tolkien",
+                  "thumbnail_image":"https://images.gr-assets.com/books/1372847500s/5907.jpg",
+                  "tags" : "fantasy",
+                  "title" : "The Hobbit"
+                }
+              ],
                 'description' : "My First List",
                 'tags' : "My First List",
                 'title' : "My First List",

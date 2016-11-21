@@ -8,6 +8,10 @@ button#sign-in.btn.btn-link {
   color: #a2c3c3;
 }
 
+button.btn-edit {
+  margin-right: 1em;
+}
+
 div#book-list {
   border-radius: 10px;
   padding: 10px;
