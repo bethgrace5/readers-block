@@ -59,9 +59,20 @@ angular.module('readers-block')
               'img': u.photoURL,
               'email': u.email,
               'name': u.displayName,
-              'alias': u.email
-            }).then(
-              function() {
+              'alias': u.email,
+              'subscribed': false,
+              'blocks' : [{
+                'books' : []
+                'description' : "zzzzzz",
+                'tags' : "zzzzzzzz",
+                'title' : "zzzzzzz",
+                'ratings' : {
+                  'community_rating': 0,
+                  'user_rating': 0
+                }
+              }]
+              }).then(
+                function() {
                 deferred.resolve('successful');
               }.bind(this)).catch(function(error) {
                 deferred.reject('error');
