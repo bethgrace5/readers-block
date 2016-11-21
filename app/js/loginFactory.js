@@ -62,7 +62,7 @@ angular.module('readers-block')
               'alias': u.email,
               'subscribed': false,
               'blocks' : [{
-                'books' : []
+                'books' : [],
                 'description' : "zzzzzz",
                 'tags' : "zzzzzzzz",
                 'title' : "zzzzzzz",
