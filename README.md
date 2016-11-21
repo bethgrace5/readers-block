@@ -21,6 +21,7 @@ mocha
 
 
 ## Team ##
-- [Bethany Armitage](http://bethgrace5.github.io/)
-- [Prosper Osagie-Amayo](https://www.linkedin.com/in/prosperoa)
-- [Cory Kitchens](http://corykitchens.com)
+- [Bethany Armitage](http://bethgrace5.github.io/) - Developer
+- [Prosper Osagie-Amayo](https://www.linkedin.com/in/prosperoa) - Developer
+- [Cory Kitchens](http://corykitchens.com) - Developer
+- [Tomas Ponce De Leon](http://pdl.enterprises/) - Business, PDL Enterprises
