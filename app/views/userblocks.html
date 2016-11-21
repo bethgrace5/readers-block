@@ -1,0 +1,104 @@
+
+<div class="container" id="user-blocks">
+  <div class="row">
+
+    <div class="col-xs-12 col-md-4" ng-show="env.loggedIn">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">My Blocks</h3>
+        </div>
+        <div class="panel-body" id="list-container">
+          <ul class="list-group">
+            <div class="row">
+              <div class="col-xs-12">
+                <button ng-click="reset() "  class="btn btn-default form-control">
+                  Add New
+                  <span class="glyphicon glyphicon-plus"></span>
+                </button>
+              </div>
+              <div ng-repeat="(key, value) in user.blocks" class="col-xs-12">
+                <li ng-class="isactive(key)" class="list-group-item" ng-click="selectBlock(key)">
+                  {{value.title}}
+                  <a class="btn btn-info pull-right" href="#/myblocks/block/?block={{key}}">Books</a>
+                </li>
+              </div>
+            </div>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-8" ng-show="env.loggedIn">
+
+      <div class="panel panel-default" ng-show="selectedId >= 0">
+
+        <div class="panel-heading">
+          <p ng-show="selectedId >= 0" class="lead">
+          Edit Block
+          </p>
+          <p ng-show="selectedId < 0" class="lead">
+          Create New Block
+          </p>
+        </div>
+
+        <div class="panel-body">
+          <form action="">
+            <label for="">Title</label>
+            <input type="text" ng-model="user.blocks[selectedId].title" class="form-control">
+            <label for="">Description</label>
+            <textarea type="text" ng-model="user.blocks[selectedId].description" class="form-control"></textarea>
+            <label for="">Tags</label>
+            <textarea type="text" ng-model="user.blocks[selectedId].tags" class="form-control"></textarea>
+            <button style="margin-top: 15px;" type="button" class="btn btn-success pull-right" ng-click="createNewBlock()">
+              <span ng-show="selectedId < 0">
+                Create
+              </span>
+              <span ng-show="selectedId >= 0">
+                Save
+              </span>
+            </button>
+            <button style="margin-top: 15px;" type="button" class="btn btn-danger btn-edit pull-right" ng-click="deleteBlock(selectedId)">
+              Delete
+            </button>
+          </form>
+        </div>
+
+    </div>
+
+
+      <div class="panel panel-default" ng-show="selectedId < 0">
+
+        <div class="panel-heading">
+          <p ng-show="selectedId >= 0" class="lead">
+          Edit Block
+          </p>
+          <p ng-show="selectedId < 0" class="lead">
+          Create New Block
+          </p>
+        </div>
+
+        <div class="panel-body" id="book-details">
+          <form action="">
+            <label for="">Title</label>
+            <input type="text" ng-model="newBlock.title" class="form-control">
+            <label for="">Description</label>
+            <textarea type="text" ng-model="newBlock.description" class="form-control"></textarea>
+            <label for="">Tags</label>
+            <textarea type="text" ng-model="newBlock.tags" class="form-control"></textarea>
+            <button style="margin-top: 15px;" type="button" class="btn btn-success pull-right" ng-click="createNewBlock()">
+              <span ng-show="selectedId < 0">
+                Create
+              </span>
+              <span ng-show="selectedId >= 0">
+                Save
+              </span>
+            </button>
+          </form>
+        </div>
+
+    </div>
+
+
+
+  </div>
+</div>
+

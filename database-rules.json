@@ -1,24 +1,28 @@
 {
   "rules": {
+    "users": {
+      ".read": "auth!= null",
+      ".write": "auth != null"
+    },
     "requests": {
-      ".read": "root.child('members/'+auth.uid ).exists()",
+      ".read": "auth!= null",
       ".write": "auth != null"
     },
     "members": {
-      ".read": "root.child('members/'+auth.uid ).exists()",
-      ".write": "root.child('members/'+auth.uid ).exists()"
+      ".read": "auth!=null",
+      ".write": "auth!=null"
     },
     "messages": {
-      ".read": "root.child('members/'+auth.uid ).exists()",
-      ".write": "root.child('members/'+auth.uid ).exists()"
+      ".read": "auth!=null",
+      ".write": "auth!=null"
     },
     "meetings": {
-      ".read": "root.child('members/'+auth.uid ).exists()",
-      ".write": "root.child('members/'+auth.uid ).exists()"
+      ".read": "auth!=null",
+      ".write": "auth!=null"
     },
     "cars": {
-      ".read": "root.child('members/'+auth.uid ).exists()",
-      ".write": "root.child('members/'+auth.uid ).exists()"
+      ".read": "auth!=null",
+      ".write": "auth!=null"
     }
   }
 }

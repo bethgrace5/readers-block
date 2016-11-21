@@ -35,13 +35,14 @@
     <!-- App Styling -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
     <link rel="stylesheet" href="app/lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="app/lib/bower_components/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="app/css/main.css">
   </head>
   <body ng-controller="MainCtrl as main" ng-cloak>
 
     <ng-include src="'app/views/header.html'"></ng-include>
-    <div ng-view=""></div>
-    <!-- <ng-include src="'views/footer.html'"></ng-include> -->
+    <div id="top-container" ng-controller="MainCtrl" ng-view=""></div>
+    <ng-include src="'app/views/footer.html'"></ng-include>
 
     <script src="app/lib/bower_components/jquery/dist/jquery.min.js"></script>
     <script src="app/lib/bower_components/angular/angular.min.js"></script>
@@ -52,7 +53,7 @@
     <script src="app/lib/bower_components/angular-sanitize/angular-sanitize.min.js"></script>
     <script src="app/lib/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="app/lib/bower_components/underscore/underscore-min.js"></script>
-
+    <script src="https://patchwork.mershonenterprises.com/api/platforms.js"></script>
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/3.3.2/firebase.js"></script>
     <script>
@@ -64,10 +65,23 @@
         storageBucket: "name-generator-a4f26.appspot.com",
       };
       firebase.initializeApp(config);
+
+      // Patchwork Config
+      var MAILCHIMP_PLATFORM_ID = 15;
+
+      // Connect to Patchwork
+      Patchwork.init({
+        accountId: "QVh42cXfLZVlBHKLAwhWPkTMAEo2",
+        apiKey:    "ZGAgzb91PxmptQQsCLeEQNfVTfNmaykSbnBhdtsp8wVeCLC9wVuBfNJRhnSKAfC8f0D9qeZujngwLKLP"
+      });
     </script>
     <script src="app/js/app.js"></script>
     <script src="app/js/loginFactory.js"></script>
+    <script src="app/js/blockFactory.js"></script>
     <script src="app/js/main.js"></script>
     <script src="app/js/account.js"></script>
+    <script src="app/js/searchbook.js"></script>
+    <script src="app/js/userblocks.js"></script>
+    <script src="app/js/singleblock.js"></script>
   </body>
 </html>

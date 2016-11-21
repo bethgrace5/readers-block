@@ -1,0 +1,31 @@
+
+<div id="footer"class="jumbotron">
+  <div class="row">
+    <div class="col-xs-12 col-sm-3">
+      <a target="_blank" href="http://www.csub.edu/">
+        <img style="margin: 20px auto; max-width: 300px;" class="img-responsive" src="app/img/CSUB.png"/>
+      </a>
+    </div>
+    <div class="col-xs-12 col-sm-3">
+      <a target="_blank" href="http://kerninnovation.tumblr.com/post/152625809957/electric-bookworm-ebookworm-hackathon-a-library">
+        <img style="margin: 20px auto; max-width: 200px;" class="img-responsive" src="app/img/hackathon.jpg"/>
+      </a>
+      </div>
+    <div class="col-xs-12 col-sm-3">
+      <a target="_blank" href="http://kerninnovation.tumblr.com/post/152625809957/electric-bookworm-ebookworm-hackathon-a-library">
+        <img style="margin: 20px auto; max-width: 100px;" class="img-responsive" src="app/img/Kitlogo2.png"/>
+      </a>
+    </div>
+    <div class="col-xs-12 col-sm-3 text-center">
+      <a target="_blank" href="https://github.com/bethgrace5/readers-block">
+        <i style="font-size:3em;" class="fa fa-github"></i><span> Reader's Block</span>
+      </a>
+      <hr/>
+      <button class="btn btn-md btn-success" id="btn-subscribe" ng-click="emailSubscription()" ng-show="env.loggedIn">
+        <span ng-hide="user.subscribed">Subcribe To Reader's Block!</span>
+        <span ng-show="user.subscribed">Unsubscribe</span>
+      </button>
+    </div>
+    </div>
+  </div>
+</div>

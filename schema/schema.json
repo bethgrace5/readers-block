@@ -1,0 +1,52 @@
+{
+  "name": "Cory Kitchens",
+    "blocks": [{
+      "title": "SP2017",
+      "description": "Spring 2017 Semester Books",
+      "tags": ["academic", "computer science", "programming", "school"],
+      "rating": {
+        "user_rating": 0,
+        "community_rating": 0
+      },
+      "books": [{
+        "title": "Articial Intelligence - A History",
+        "genres": ["computer science", "ariticial intelligence"],
+        "author": "Dr. Albert Cruz",
+        "cover_url": "http://someurl.com/imagecover-a1232.jpg"
+      }, {
+        "title": "OpenGL - A Love Story",
+        "genres": ["computer science", "graphs"],
+        "author": "Some guy from Pixar",
+        "cover_url": "http://someurl.com/imagecover-b1294.jpg"
+      }, {
+        "title": "The Hidden Semicolon - Hard Lessons Learned",
+        "genres": ["computer science", "frustrating", "difficult", "anger-management"],
+        "author": "Some guy from StackOverflow",
+        "cover_url": "http://someurl.com/imagecover532n.jpg"
+      }]
+    }, {
+      "title": "/r/ Books Top 200",
+        "description": "Reddits Top 200 Books of All Time",
+        "tags": ["scifi", "fantasy", "literature", "horror"],
+        "rating": {
+          "user_rating": 0,
+          "community_rating": 0
+        },
+        "books": [{
+          "title": "Enders Game",
+          "genres": ["science finction", "scifi"],
+          "author": "That Guy",
+          "cover_url": "http://someurl.com/imagecover-a2232.jpg"
+        }, {
+          "title": "Goosebumps",
+          "genres": ["childhood", "nostolgia"],
+          "author": "RL Stine",
+          "cover_url": "http://someurl.com/imagecover-toospooky.jpg"
+        }, {
+          "title": "Hitchhiker's Guide to the Galaxy",
+          "genres": ["towel", "science fiction", "paranoid android"],
+          "author": "Douglas Adams",
+          "cover_url": "http://someurl.com/imagecover-thanksforthefish.jpg"
+        }]
+    }]
+}

@@ -1,6 +1,18 @@
 'use strict';
 angular.module('readers-block')
-  .controller('MainCtrl', function ($scope, $rootScope, $timeout, $location, loginFactory){
+  .controller('MainCtrl', function ($scope, $rootScope, $timeout, $location, loginFactory, blockFactory){
+  $scope.activeTab = 'home';
+
+  $scope.isActive = function(item) {
+    if (item == $scope.activeTab) {
+      return 'active';
+    }
+  }
+
+  $scope.close = function(tab) {
+    $scope.activeTab = tab;
+    $('#navbar').collapse('hide');
+  }
 
   $scope.user = loginFactory.getUser();
   $scope.env = loginFactory.getEnv();
@@ -10,7 +22,6 @@ angular.module('readers-block')
   $scope.meetings = {};
   $scope.members = {};
   $scope.allCars = {};
-  $scope.cars = loginFactory.getCars();
   $scope.LOADING_IMAGE_URL = 'https://www.google.com/images/spin-32.gif';
 
   $scope.signIn = function(method) {
@@ -18,6 +29,10 @@ angular.module('readers-block')
   }
   $scope.signOut = function() {
     loginFactory.signOut();
+  }
+
+  $scope.addBlock = function() {
+    blockFactory.add();
   }
 
   $scope.deleteCar = function(key, value) {
@@ -240,16 +255,64 @@ angular.module('readers-block')
     loginFactory.denyRequest(key, value);
   }
 
+  blockFactory.registerObserverCallback(
+    function() {
+      $timeout(function() {
+        $scope.user = loginFactory.getUser();
+        $scope.env = loginFactory.getEnv();
+        $scope.$apply();
+      });
+    }
+  );
   loginFactory.registerObserverCallback(
       function() {
         $timeout(function() {
           $scope.user = loginFactory.getUser();
           $scope.env = loginFactory.getEnv();
-          $scope.cars = loginFactory.getCars();
           $scope.$apply();
         });
       }
     );
 
+  $scope.emailSubscription = function() {
+    if($scope.user.subscribed) {
+      emailUnsubscribe();
+      return;
+    }
+
+    Patchwork.callPlatformMethod({
+        platformId: MAILCHIMP_PLATFORM_ID,
+        method: "subscribers",
+        action: "POST",
+        params: {email_address: $scope.user.email}
+    }).then(function(responseJSON) {
+      return new Promise(function(resolve, reject) {
+        alert("Subscribed Successfully. Please check your email for confirmation.");
+        console.log('calling add-subscriber for ' + $scope.user.email);
+        loginFactory.subscribe(true);
+        $scope.user.subscribed = true;
+        $scope.$apply();
+        resolve();
+      });
+    });
+  }
+
+  function emailUnsubscribe() {
+    Patchwork.callPlatformMethod({
+        platformId: MAILCHIMP_PLATFORM_ID,
+        method: "subscribers",
+        action: "DELETE",
+        params: {email_address: $scope.user.email}
+    }).then(function(responseJSON) {
+      return new Promise(function(resolve, reject) {
+        alert("Unsubscribed Successfully. Please check your email for confirmation.");
+        console.log('calling delete-subscriber for ' + $scope.user.email);
+        loginFactory.subscribe(false);
+        $scope.user.subscribed = false;
+        $scope.$apply();
+        resolve();
+      });
+    });
+  }
 
 });
