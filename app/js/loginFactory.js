@@ -63,9 +63,9 @@ angular.module('readers-block')
               'subscribed': false,
               'blocks' : [{
                 'books' : [],
-                'description' : "zzzzzz",
-                'tags' : "zzzzzzzz",
-                'title' : "zzzzzzz",
+                'description' : "My First List",
+                'tags' : "My First List",
+                'title' : "My First List",
                 'ratings' : {
                   'community_rating': 0,
                   'user_rating': 0
