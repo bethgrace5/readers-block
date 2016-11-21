@@ -6,7 +6,7 @@
       </div>
       <div class="panel-body" id="list-container">
         <input type="text" ng-model="search.book_title" class="form-control" placeholder="Goosebumps">
-        <button class="btn btn-primary" ng-click="findBook()">Search for Book</button>
+        <button class="btn btn-primary btn-search" ng-click="findBook()">Search for Book</button>
         <div ng-show="flashMessage" class="{{flashMessage.type}}">
           {{flashMessage.msg}}
         </div>
