@@ -30,12 +30,22 @@ angular.module('readers-block')
       });
     };
 
+    // remove invalid angular key ($$hashKey) that won't set in firebase
+    function cleanBlockList() {
+      var blocks = _.map($scope.user.blocks, function(item, index) {
+        item.books = _.map(item.books, function(book, i) {
+          return _.omit(book, '$$hashKey');
+        });
+        return _.omit(item, '$$hashKey');
+      });
+      return blocks;
+    };
+
     $scope.addBookToBlock = function(book) {
       var newBook = {};
       newBook.title = book.title;
       newBook.author = book.author;
       newBook.thumbnail_image = book.thumbnail_image;
-      blockFactory.addBook(newBook, $scope.blockId);
       updateBookList(newBook);
     };
 
@@ -43,7 +53,8 @@ angular.module('readers-block')
     //Workaround for updating the View
     //Probably bad practice
     function updateBookList(newBook) {
-      $scope.singleBlock.books.push(newBook);
+      $scope.user.blocks[$scope.blockId].books.unshift(newBook);
+      blockFactory.update(cleanBlockList());
     }
 
 });

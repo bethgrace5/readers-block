@@ -54,10 +54,14 @@
           </div>
           <ul class="book-results-list">
             <li ng-repeat="book in bookResults">
-              <div class="col-xs-1">
+              <div class="col-xs-2">
+            <button class="btn btn-default" ng-click="addBookToBlock(book)">
+              <span class="glyphicon glyphicon-plus">
+              </span>
+            </button>
                 <img ng-src="{{book.thumbnail_image}}" alt="">
               </div>
-              <div class="col-xs-11">
+              <div class="col-xs-10">
                 <p class="lead"> <strong>{{book.title}} </strong><br/>{{book.author}} </p>
               </div>
             </li>
