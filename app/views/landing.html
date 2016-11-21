@@ -1,131 +1,133 @@
-<div class="jumbotron" id="main-banner">
-  <h2 class="text-center">A Book Fanatic's Go-To Resource</h2>
-</div>
-
-<div class="jumbotron" id="icon-banner">
-  <div class="row">
-    <!-- column 1 -->
-    <div class="col-xs-12 col-sm-4">
-      <div class="circle-icon text-center">
-        <i class="fa fa-search" aria-hidden="true"></i>
+<div id="landing">
+  <div class="jumbotron" id="main-banner">
+    <h2 class="text-center">A Book Fanatic's Go-To Resource</h2>
+  </div>
+  
+  <div class="jumbotron" id="icon-banner">
+    <div class="row">
+      <!-- column 1 -->
+      <div class="col-xs-12 col-sm-4 topics">
+        <div class="circle-icon text-center">
+          <i class="fa fa-search" aria-hidden="true"></i>
+        </div>
+        <h3 class="text-center">Discover</h3>
+        <p>Catch the latest trends. Find new must-reads. See the newest recommendations. Keep your book club connected.</p>
+        <ul class="list-group">
+          <div class="col-xs-12">
+            <li class="list-group-item">School Books</li>
+          </div>
+          <div class="col-xs-12">
+            <li class="list-group-item">Summer 2016</li>
+          </div>
+          <div class="col-xs-12">
+            <li class="list-group-item">Scary Titles</li>
+          </div>
+          <div class="col-xs-12">
+            <li class="list-group-item">American History</li>
+          </div>
+          <div class="col-xs-12">
+            <li class="list-group-item more"><strong>More ... </strong></li>
+          </div>
+        </ul>
+  
       </div>
-      <h3 class="text-center">Discover</h3>
-      <p>Catch the latest trends. Find new must-reads. See the newest recommendations. Keep your book club connected.</p>
-      <ul class="list-group">
-        <div class="col-xs-12">
-          <li class="list-group-item">School Books</li>
+      <!-- column 2 -->
+      <div class="col-xs-12 col-sm-4 topics">
+        <div class="circle-icon text-center">
+          <i class="fa fa-rocket" aria-hidden="true"></i>
         </div>
-        <div class="col-xs-12">
-          <li class="list-group-item">Summer 2016</li>
-        </div>
-        <div class="col-xs-12">
-          <li class="list-group-item">Scary Titles</li>
-        </div>
-        <div class="col-xs-12">
-          <li class="list-group-item">American History</li>
-        </div>
-        <div class="col-xs-12">
-          <li class="list-group-item more"><strong>More ... </strong></li>
-        </div>
-      </ul>
-
-    </div>
-    <!-- column 2 -->
-    <div class="col-xs-12 col-sm-4">
-      <div class="circle-icon text-center">
-        <i class="fa fa-rocket" aria-hidden="true"></i>
+        <h3 class="text-center">Fantasize</h3>
+        <p>Get carried away with the best of the best. Become enlightened about what makes these Blocks the best of the best.</p>
+        <ul class="list-group">
+          <div class="col-xs-12">
+            <li class="list-group-item">School Books</li>
+          </div>
+          <div class="col-xs-12">
+            <li class="list-group-item">Summer 2016</li>
+          </div>
+          <div class="col-xs-12">
+            <li class="list-group-item">Scary Titles</li>
+          </div>
+          <div class="col-xs-12">
+            <li class="list-group-item">American History</li>
+          </div>
+          <div class="col-xs-12">
+            <li class="list-group-item more"><strong>More ... </strong></li>
+          </div>
+        </ul>
       </div>
-      <h3 class="text-center">Fantasize</h3>
-      <p>Get carried away with the best of the best. Become enlightened about what makes these Blocks the best of the best.</p>
-      <ul class="list-group">
-        <div class="col-xs-12">
-          <li class="list-group-item">School Books</li>
+      <!-- column 3 -->
+      <div class="col-xs-12 col-sm-4 topics">
+        <div class="circle-icon text-center">
+          <i class="fa fa-industry" aria-hidden="true"></i>
         </div>
-        <div class="col-xs-12">
-          <li class="list-group-item">Summer 2016</li>
-        </div>
-        <div class="col-xs-12">
-          <li class="list-group-item">Scary Titles</li>
-        </div>
-        <div class="col-xs-12">
-          <li class="list-group-item">American History</li>
-        </div>
-        <div class="col-xs-12">
-          <li class="list-group-item more"><strong>More ... </strong></li>
-        </div>
-      </ul>
-    </div>
-    <!-- column 3 -->
-    <div class="col-xs-12 col-sm-4">
-      <div class="circle-icon text-center">
-        <i class="fa fa-industry" aria-hidden="true"></i>
-      </div>
-      <h3 class="text-center">Join The Fun!</h3>
-      <p>Organize your summer reading list. Reccomend reading material to ambitious students. But most of all, <strong>Never suffer from Reader's Block again!</strong></p>
-          <ul class="list-group">
-            <div ng-repeat="item in user.blocks">
-              <div class="col-xs-12">
-                <li class="list-group-item">
-                {{item.title}}
-                <span class="community-ratings">
-                  <!-- 0.5 -->
-                  <i class="fa fa-star-o"      ng-show="item.rating.user_rating < 0.5"></i>
-                  <i class="fa fa-star-half-o" ng-show="item.rating.user_rating == 0.5"></i>
-                  <i class="fa fa-star"        ng-show="item.rating.user_rating >= 0.5"></i>
-                  <!-- 1.5 -->
-                  <i class="fa fa-star-o"      ng-show="item.rating.user_rating < 1.5"></i>
-                  <i class="fa fa-star-half-o" ng-show="item.rating.user_rating == 1.5"></i>
-                  <i class="fa fa-star"        ng-show="item.rating.user_rating >= 1.5"></i>
-                  <!-- 2.5 -->
-                  <i class="fa fa-star-o"      ng-show="item.rating.user_rating < 2.5"></i>
-                  <i class="fa fa-star-half-o" ng-show="item.rating.user_rating == 2.5"></i>
-                  <i class="fa fa-star"        ng-show="item.rating.user_rating >= 2.5"></i>
-                  <!-- 3.5 -->
-                  <i class="fa fa-star-o"      ng-show="item.rating.user_rating < 3.5"></i>
-                  <i class="fa fa-star-half-o" ng-show="item.rating.user_rating == 3.5"></i>
-                  <i class="fa fa-star"        ng-show="item.rating.user_rating >= 3.5"></i>
-                  <!-- 4.5 -->
-                  <i class="fa fa-star-o"      ng-show="item.rating.user_rating < 4.5"></i>
-                  <i class="fa fa-star-half-o" ng-show="item.rating.user_rating == 4.5"></i>
-                  <i class="fa fa-star"        ng-show="item.rating.user_rating >= 4.5"></i>
-                </span>
-                <span class="critic-ratings">
-                  <!-- 0.5 -->
-                  <i class="fa fa-star-o"      ng-show="item.rating.community_rating < 0.5"></i>
-                  <i class="fa fa-star-half-o" ng-show="item.rating.community_rating == 0.5"></i>
-                  <i class="fa fa-star"        ng-show="item.rating.community_rating >= 0.5"></i>
-                  <!-- 1.5 -->
-                  <i class="fa fa-star-o"      ng-show="item.rating.community_rating < 1.5"></i>
-                  <i class="fa fa-star-half-o" ng-show="item.rating.community_rating == 1.5"></i>
-                  <i class="fa fa-star"        ng-show="item.rating.community_rating >= 1.5"></i>
-                  <!-- 2.5 -->
-                  <i class="fa fa-star-o"      ng-show="item.rating.community_rating < 2.5"></i>
-                  <i class="fa fa-star-half-o" ng-show="item.rating.community_rating == 2.5"></i>
-                  <i class="fa fa-star"        ng-show="item.rating.community_rating >= 2.5"></i>
-                  <!-- 3.5 -->
-                  <i class="fa fa-star-o"      ng-show="item.rating.community_rating < 3.5"></i>
-                  <i class="fa fa-star-half-o" ng-show="item.rating.community_rating == 3.5"></i>
-                  <i class="fa fa-star"        ng-show="item.rating.community_rating >= 3.5"></i>
-                  <!-- 4.5 -->
-                  <i class="fa fa-star-o"      ng-show="item.rating.community_rating < 4.5"></i>
-                  <i class="fa fa-star-half-o" ng-show="item.rating.community_rating == 4.5"></i>
-                  <i class="fa fa-star"        ng-show="item.rating.community_rating >= 4.5"></i>
-                </span>
+        <h3 class="text-center">Join The Fun!</h3>
+        <p>Organize your summer reading list. Reccomend reading material to ambitious students. But most of all, <strong>Never suffer from Reader's Block again!</strong></p>
+            <ul class="list-group">
+              <div ng-repeat="item in user.blocks">
+                <div class="col-xs-12">
+                  <li class="list-group-item">
+                  {{item.title}}
+                  <span class="community-ratings">
+                    <!-- 0.5 -->
+                    <i class="fa fa-star-o"      ng-show="item.rating.user_rating < 0.5"></i>
+                    <i class="fa fa-star-half-o" ng-show="item.rating.user_rating == 0.5"></i>
+                    <i class="fa fa-star"        ng-show="item.rating.user_rating >= 0.5"></i>
+                    <!-- 1.5 -->
+                    <i class="fa fa-star-o"      ng-show="item.rating.user_rating < 1.5"></i>
+                    <i class="fa fa-star-half-o" ng-show="item.rating.user_rating == 1.5"></i>
+                    <i class="fa fa-star"        ng-show="item.rating.user_rating >= 1.5"></i>
+                    <!-- 2.5 -->
+                    <i class="fa fa-star-o"      ng-show="item.rating.user_rating < 2.5"></i>
+                    <i class="fa fa-star-half-o" ng-show="item.rating.user_rating == 2.5"></i>
+                    <i class="fa fa-star"        ng-show="item.rating.user_rating >= 2.5"></i>
+                    <!-- 3.5 -->
+                    <i class="fa fa-star-o"      ng-show="item.rating.user_rating < 3.5"></i>
+                    <i class="fa fa-star-half-o" ng-show="item.rating.user_rating == 3.5"></i>
+                    <i class="fa fa-star"        ng-show="item.rating.user_rating >= 3.5"></i>
+                    <!-- 4.5 -->
+                    <i class="fa fa-star-o"      ng-show="item.rating.user_rating < 4.5"></i>
+                    <i class="fa fa-star-half-o" ng-show="item.rating.user_rating == 4.5"></i>
+                    <i class="fa fa-star"        ng-show="item.rating.user_rating >= 4.5"></i>
+                  </span>
+                  <span class="critic-ratings">
+                    <!-- 0.5 -->
+                    <i class="fa fa-star-o"      ng-show="item.rating.community_rating < 0.5"></i>
+                    <i class="fa fa-star-half-o" ng-show="item.rating.community_rating == 0.5"></i>
+                    <i class="fa fa-star"        ng-show="item.rating.community_rating >= 0.5"></i>
+                    <!-- 1.5 -->
+                    <i class="fa fa-star-o"      ng-show="item.rating.community_rating < 1.5"></i>
+                    <i class="fa fa-star-half-o" ng-show="item.rating.community_rating == 1.5"></i>
+                    <i class="fa fa-star"        ng-show="item.rating.community_rating >= 1.5"></i>
+                    <!-- 2.5 -->
+                    <i class="fa fa-star-o"      ng-show="item.rating.community_rating < 2.5"></i>
+                    <i class="fa fa-star-half-o" ng-show="item.rating.community_rating == 2.5"></i>
+                    <i class="fa fa-star"        ng-show="item.rating.community_rating >= 2.5"></i>
+                    <!-- 3.5 -->
+                    <i class="fa fa-star-o"      ng-show="item.rating.community_rating < 3.5"></i>
+                    <i class="fa fa-star-half-o" ng-show="item.rating.community_rating == 3.5"></i>
+                    <i class="fa fa-star"        ng-show="item.rating.community_rating >= 3.5"></i>
+                    <!-- 4.5 -->
+                    <i class="fa fa-star-o"      ng-show="item.rating.community_rating < 4.5"></i>
+                    <i class="fa fa-star-half-o" ng-show="item.rating.community_rating == 4.5"></i>
+                    <i class="fa fa-star"        ng-show="item.rating.community_rating >= 4.5"></i>
+                  </span>
+                </div>
               </div>
-            </div>
-          </ul>
-
-          <!-- user is logged in -->
-        <div ng-show="env.loggedIn" class="col-xs-12">
-          <li class="list-group-item more"><strong>More ... </strong></li>
-          <button class="btn btn-default" id="add-list">Create New List</button>
-        </div>
-
-        <!-- not logged in -->
-        <div ng-hide="env.loggedIn" class="col-xs-12">
-          <li class="list-group-item"><strong>Sign In</strong></li>
-        </div>
-
+            </ul>
+  
+            <!-- user is logged in -->
+          <div ng-show="env.loggedIn" class="col-xs-12">
+            <li class="list-group-item more"><strong>More ... </strong></li>
+            <button class="btn btn-default" id="add-list">Create New List</button>
+          </div>
+  
+          <!-- not logged in -->
+          <div ng-hide="env.loggedIn" class="col-xs-12">
+            <li class="list-group-item"><strong>Sign In</strong></li>
+          </div>
+  
+      </div>
     </div>
   </div>
 </div>

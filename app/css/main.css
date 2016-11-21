@@ -25,6 +25,14 @@ html, body {
   background-color: #596070;
 }
 
+div#landing {
+  margin: -2em;
+}
+
+div.topics {
+  margin-bottom: 2em;
+}
+
 div#footer.jumbotron {
   border-top: 10px solid #d0e1e1;
   background-color: #596070;
@@ -58,11 +66,24 @@ div.circle-icon {
   background-color: #009900;
 }
 
+div.container,
+div#top-container {
+  padding: 2em;
+}
+
+div#user-blocks li.list-group-item {
+  display: inline-block;
+  width: 100%;
+}
+
+div#user-blocks #book-details label {
+  margin-top: 1.5em;
+}
+
 .list-group-item {
-  border-left: 2px solid #009900;
-  border-top: 2px solid #009900;
-  border-right: 2px solid #008000;
+  border: 2px solid #009900;
   font-weight: 500;
+  margin: 0.5em 0;
 }
 .list-group-item.more:hover {
   background-color: #ffff80;
@@ -251,4 +272,8 @@ ul.nav.navbar-nav {
 
 .book-results-list {
   list-style-type: none;
+}
+
+button.btn-search {
+  margin-top: 1em;
 }
