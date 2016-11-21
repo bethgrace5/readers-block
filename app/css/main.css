@@ -29,6 +29,10 @@ div#landing {
   margin: -2em;
 }
 
+div.topics {
+  margin-bottom: 2em;
+}
+
 div#footer.jumbotron {
   border-top: 10px solid #d0e1e1;
   background-color: #596070;
